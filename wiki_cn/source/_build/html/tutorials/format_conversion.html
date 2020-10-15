@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. 数据格式及其转换 &mdash; Livox wiki 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. 如何进行传感器标定？" href="sensor_calibration.html" />
+    <link rel="prev" title="2. 多雷达数据采集（使用览沃枢纽 Livox Hub）" href="multiple_lidars_capture.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Livox wiki
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Livox</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/production.html">1. 产品</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/livox_scanning_pattern.html">2. Livox的扫描特性简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/Point_Cloud_Characteristics_and_Coordinate_System .html">3. Livox的点云属性与惯性坐标系</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/cases.html">4. 案例介绍</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基础教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="single_lidar_capture.html">1. 单雷达数据采集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_lidars_capture.html">2. 多雷达数据采集（使用览沃枢纽 Livox Hub）</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 数据格式及其转换</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#livox-lidar">3.1. Livox Lidar数据格式介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.2. 数据格式转化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lvxrosbag">3.2.1. lvx文件转rosbag文件并播放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lvx-las-csv">3.2.2. lvx文件转.las或.csv文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rosbagpcd">3.2.3. rosbag文件转pcd文件</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sensor_calibration.html">4. 如何进行传感器标定？</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发者资料汇总</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary/Livox_data_summary.html">1. 官方开源资料汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary/third_part_summary.html">2. 非官方开源资料汇总</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Livox wiki</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>数据格式及其转换</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorials/format_conversion.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">3. </span>数据格式及其转换<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="livox-lidar">
+<h2><span class="section-number">3.1. </span>Livox Lidar数据格式介绍<a class="headerlink" href="#livox-lidar" title="Permalink to this headline">¶</a></h2>
+<p>Livox lidar支持多种方式连接和存储点云数据，其常用格式如下：</p>
+<ul class="simple">
+<li><p>bag文件：bag文件是ROS系统常用的点云数据存储格式，有livox自定义的custommsg格式和pointcloud2格式两种。记录了lidar扫描过程中每帧点云数据并动态显示。使用ROS连接Livox
+lidar可扫描并存储此格式的数据。</p></li>
+<li><p>lvx文件：lvx文件是使用Livox Viewer连接Livox
+Lidar后存储的点云格式文件，可在Livox Viewer中查看并记录。</p></li>
+<li><p>csv文件：逗号分隔值文件，使用Livox Viewer连接Livox
+Lidar后可将点云格式文件保存为csv格式。</p></li>
+<li><p>las文件：可用以保存Lidar点数据记录，使用Livox Viewer连接Livox
+Lidar后可将点云格式文件保存为las格式。</p></li>
+<li><p>pcd文件：点云格式文件，记录某一帧的点云数据。Livox
+Lidar记录的数据无法直接保存为pcd格式，需进行转化。</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">3.2. </span>数据格式转化<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lvxrosbag">
+<h3><span class="section-number">3.2.1. </span>lvx文件转rosbag文件并播放<a class="headerlink" href="#lvxrosbag" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>软件依赖：Ubuntu 16.04、ROS、livox_ros_driver (此部分驱动的下载和安装详细过程见 <a class="reference internal" href="../data_summary/Livox_data_summary.html"><span class="doc">驱动</span></a>)</p></li>
+</ul>
+<p>livox_ros_driver支持将lvx pointcloud数据文件转换为rosbag文件。</p>
+<p>在<code class="docutils literal notranslate"><span class="pre">../ws_livox</span></code>下打开终端，编译：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ catkin_make
+</pre></div>
+</div>
+<p>使用如下命令更新当前ROS包环境：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source ./devel/setup.bash
+</pre></div>
+</div>
+<p>再使用以下命令：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ roslaunch livox_ros_driver lvx_to_rosbag.launch lvx_file_path:=&quot;&quot;
+</pre></div>
+</div>
+<p>在上述命令中双引号内填写本地lvx数据文件路径即可成功运行，转换成功后将在上述路径下生成同名的rosbag格式文件,如下图所示：</p>
+<img alt="../_images/lvx_to_rosbag_01.png" src="../_images/lvx_to_rosbag_01.png" />
+<img alt="../_images/lvx_to_rosbag_02.png" src="../_images/lvx_to_rosbag_02.png" />
+<p>得到转化成功后的test.bag文件后，可使用rviz可视化工具播放，步骤如下：</p>
+<p>启动ROS：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ roscore
+</pre></div>
+</div>
+<p>运行rviz：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosrun rviz rviz
+</pre></div>
+</div>
+<p>成功打开rviz后，需添加PointCloud2并选择相应的topic，可使用<code class="docutils literal notranslate"><span class="pre">rosbag</span> <span class="pre">info</span> <span class="pre">&lt;filename.bag&gt;</span></code>命令查看相应bag文件对应的topic，如下所示：</p>
+<img alt="../_images/rosbag_info.png" src="../_images/rosbag_info.png" />
+<p>在rviz中添加相应topic：</p>
+<img alt="../_images/rviz.png" src="../_images/rviz.png" />
+<p>然后运行rosbag，即可播放：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosbag play &lt;test.bag&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="lvx-las-csv">
+<h3><span class="section-number">3.2.2. </span>lvx文件转.las或.csv文件<a class="headerlink" href="#lvx-las-csv" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>软件依赖：Livox Viewer（win or ubuntu）</p></li>
+</ul>
+<p>Livox Viewer提供了一个将lvx 文件整体转为一个las 或者csv
+文件的转换工具,方便用户处理数据使用。菜单栏中选择 Tools-&gt;File Converter
+即可打开此工具。</p>
+</div>
+<div class="section" id="rosbagpcd">
+<h3><span class="section-number">3.2.3. </span>rosbag文件转pcd文件<a class="headerlink" href="#rosbagpcd" title="Permalink to this headline">¶</a></h3>
+<p><strong>PointCloud2格式的rosbag文件</strong></p>
+<p>参考：<a class="reference external" href="http://wiki.ros.org/pcl_ros">http://wiki.ros.org/pcl_ros</a></p>
+<p>软件依赖：Ubuntu 16.04、ROS、PCL</p>
+<p>运行ros：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ roscore
+</pre></div>
+</div>
+<p>在.bag文件存储路径下打开终端并运行命令：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosrun pcl_ros bag_to_pcd &lt;input_file.bag&gt; &lt;topic&gt; &lt;output_directory&gt;
+</pre></div>
+</div>
+<p>其中<code class="docutils literal notranslate"><span class="pre">&lt;input_file.bag&gt;</span></code>为需转换的bag文件名称，<code class="docutils literal notranslate"><span class="pre">&lt;topic&gt;</span></code>为该bag文件的topic信息，<code class="docutils literal notranslate"><span class="pre">&lt;output_directory&gt;</span></code>为转化完成后的pcd文件存放地址。</p>
+<img alt="../_images/bag_to_pcd_pcddata.png" src="../_images/bag_to_pcd_pcddata.png" />
+<p>在对应文件夹下，可找到由rosbag文件转化而来的每一帧pcd文件，其文件名为当前帧的时间戳：</p>
+<img alt="../_images/testpcd.png" src="../_images/testpcd.png" />
+<p>转换完成后，可使用pcl_viewer查看pcd文件。命令如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pcl_viewer &lt;filename.pcd&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sensor_calibration.html" class="btn btn-neutral float-right" title="4. 如何进行传感器标定？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="multiple_lidars_capture.html" class="btn btn-neutral float-left" title="2. 多雷达数据采集（使用览沃枢纽 Livox Hub）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Livox
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

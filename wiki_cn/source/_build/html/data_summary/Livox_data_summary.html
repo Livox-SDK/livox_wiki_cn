@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 官方开源资料汇总 &mdash; Livox wiki 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. 非官方开源资料汇总" href="third_part_summary.html" />
+    <link rel="prev" title="问题与解答" href="../FAQ.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Livox wiki
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Livox</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/production.html">1. 产品序列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/livox_scanning_pattern.html">2. Livox的扫描特性简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/Point_Cloud_Characteristics_and_Coordinate_System .html">3. Livox的点云属性与惯性坐标系</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/cases.html">4. 案例介绍</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基础教程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/single_lidar_capture.html">1. 单雷达数据采集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/multiple_lidars_capture.html">2. 多雷达数据采集（使用览沃枢纽 Livox Hub）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/format_conversion.html">3. 数据格式及其转换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sensor_calibration.html">4. 如何进行传感器标定？</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发者资料汇总</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 官方开源资料汇总</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 驱动</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#livox-sdk">1.1.1. Livox SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-ros-driver">1.1.2. Livox ROS Driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-apollo-driver">1.1.3. Livox Apollo Driver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">1.2. 工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#livox-viewer">1.2.1. Livox Viewer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">1.3. 开源算法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#livox-horizon-loam">1.3.1. Livox Horizon LOAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loam-horizon-calibration">1.3.2. LOAM Horizon Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-scanner">1.3.3. livox scanner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-high-precision-mapping">1.3.4. livox high precision mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-camera-lidar-calibration">1.3.5. livox camera lidar calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#horizon-highway-slam">1.3.6. Horizon Highway SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-relocalization">1.3.7. Livox-Relocalization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">1.4. 文档与手册</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">1.4.1. Livox Viewer用户手册</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">1.4.2. 延长线转接盒安装模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox">1.4.3. Livox点云特性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-horizon">1.4.4. Livox Horizon相关</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-mid">1.4.5. Livox Mid相关</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-tele">1.4.6. Livox_Tele相关</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-hub">1.4.7. Livox Hub相关</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id24">1.5. 点云数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id25">1.5.1. Livox Horizon点云数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#livox-mid-100">1.5.2. Livox Mid-100点云数据</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="third_part_summary.html">2. 非官方开源资料汇总</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Livox wiki</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>官方开源资料汇总</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/data_summary/Livox_data_summary.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>官方开源资料汇总<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>驱动<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="livox-sdk">
+<h3><span class="section-number">1.1.1. </span>Livox SDK<a class="headerlink" href="#livox-sdk" title="Permalink to this headline">¶</a></h3>
+<p>Livox SDK是为Livox公司旗下所有产品设计的软件开发套件。它基于C/C++语言开发，遵循Livox SDK通信协议，并为用户提供了易用的C语言风格的接口。通过Livox SDK,用户可以快速地连接Livox产品并接收点云数据。详情及安装见 <a class="reference external" href="https://github.com/Livox-SDK/Livox-SDK">Livox SDK</a></p>
+</div>
+<div class="section" id="livox-ros-driver">
+<h3><span class="section-number">1.1.2. </span>Livox ROS Driver<a class="headerlink" href="#livox-ros-driver" title="Permalink to this headline">¶</a></h3>
+<p>Livox ROS driver是一个全新的ROS包，专门用于连接览沃生产的LiDAR产品。该驱动程序可以在安装了ROS环境（indigo,kinetic,melodic）的ubuntu14.04/16.04/18.04操作系统下运行。经测试可以运行览沃ROS驱动程序的硬件平台包括：intel x86主流cpu平台，部分ARM64硬件平台（如，nvida TX2/Xavier等）。详情及安装见 <a class="reference external" href="https://github.com/Livox-SDK/livox_ros_driver">Livox ROS Driver</a></p>
+</div>
+<div class="section" id="livox-apollo-driver">
+<h3><span class="section-number">1.1.3. </span>Livox Apollo Driver<a class="headerlink" href="#livox-apollo-driver" title="Permalink to this headline">¶</a></h3>
+<p>览沃Apollo驱动用于将Livox_Lidar扫描得到的原始数据文件转化为标准点云格式文件，并写入点云频道。详情及安装见 <a class="reference external" href="https://github.com/Livox-SDK/livox_apollo_driver">Livox Apollo Driver</a></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">1.2. </span>工具<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="livox-viewer">
+<h3><span class="section-number">1.2.1. </span>Livox Viewer<a class="headerlink" href="#livox-viewer" title="Permalink to this headline">¶</a></h3>
+<p>Livox Viewer 是一款专为Livox激光探测测距仪和Liovx Hub设计的，可用于实时显示连接至计算机的所有激光探测测距仪点云数据的软件。通过Livox Viewer，用户可轻松查看、记录并储存点云数据，以便后期使用。详细说明可见Livox官网 <a class="reference external" href="https://github.com/Livox-SDK/Livox-Viewer">Livox Viewer使用手册</a>，下载地址如下所示：</p>
+<p><a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Viewer/Livox%20Viewer%200.7.0.zip">Livox Viewer 0.7.0 (64bit) - Windows</a></p>
+<p><a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Viewer/Livox_Viewr_For_Linux_Ubuntu16.04_x64_0.7.0.tar.gz">Livox Viewer 0.7.0(64bit) - Ubuntu 16.04</a></p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">1.3. </span>开源算法<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="livox-horizon-loam">
+<h3><span class="section-number">1.3.1. </span>Livox Horizon LOAM<a class="headerlink" href="#livox-horizon-loam" title="Permalink to this headline">¶</a></h3>
+<p>livox Horizon Loam是针对Livox Lidar开发的一个鲁棒、低飘逸、实时的里程计和绘图软件包。该软件包主要针对低速场景（约5km/h）设计，并解决了许多关键问题如有限视场下的特征提取和选择和运动失真补偿等。详情见：
+<a class="reference external" href="https://github.com/Livox-SDK/livox_horizon_loam">Livox Horizon Loam</a></p>
+</div>
+<div class="section" id="loam-horizon-calibration">
+<h3><span class="section-number">1.3.2. </span>LOAM Horizon Calibration<a class="headerlink" href="#loam-horizon-calibration" title="Permalink to this headline">¶</a></h3>
+<p>针对Horizon-Horizon/Horizon-Tele的基于Loam-Horizon的外部校准步骤。详情见：
+<a class="reference external" href="https://github.com/Livox-SDK/livox_calibration">LOAM Horizon Calibration</a></p>
+</div>
+<div class="section" id="livox-scanner">
+<h3><span class="section-number">1.3.3. </span>livox scanner<a class="headerlink" href="#livox-scanner" title="Permalink to this headline">¶</a></h3>
+<p>livox scanner是一个3D扫描解决方案，主要包括一个Mid-40激光雷达、Manifold 2计算平台，以及一个带编码器的GM6020电机。LiDAR和电机安装在三脚架顶端，Mid-40将绕Z轴旋转，扫描空间内不同区域，点云数据融合电机角度后得到空间中的3维图像。系统搭建过程及详细代码见：
+<a class="reference external" href="https://github.com/Livox-SDK/livox_scanner">livox scanner</a></p>
+</div>
+<div class="section" id="livox-high-precision-mapping">
+<h3><span class="section-number">1.3.4. </span>livox high precision mapping<a class="headerlink" href="#livox-high-precision-mapping" title="Permalink to this headline">¶</a></h3>
+<p>该方案使用探测距离达260m，精度2cm，非重复扫描方式的Mid-40激光雷达传感器，结合APX-15惯导模块提供的高精度位置，姿态数据，实现实时的高精度建图功能。详情见：
+<a class="reference external" href="https://github.com/Livox-SDK/livox_high_precision_mapping">livox high precision mapping</a></p>
+</div>
+<div class="section" id="livox-camera-lidar-calibration">
+<h3><span class="section-number">1.3.5. </span>livox camera lidar calibration<a class="headerlink" href="#livox-camera-lidar-calibration" title="Permalink to this headline">¶</a></h3>
+<p>该方案提供了一个手动校准Livox雷达和相机之间外参的方法，已经在Mid-40，Horizon和Tele-15上进行了验证。其中包含了计算相机内参，获得标定数据，优化计算外参和雷达相机融合应用相关的代码。本方案中使用了标定板角点作为标定目标物，由于Livox雷达非重复性扫描的特点，点云的密度较大，比较易于找到雷达点云中角点的准确位置。相机雷达的标定和融合也可以得到不错的结果。详情见：
+<a class="reference external" href="https://github.com/Livox-SDK/livox_camera_lidar_calibration">livox camera lidar calibration</a></p>
+</div>
+<div class="section" id="horizon-highway-slam">
+<h3><span class="section-number">1.3.6. </span>Horizon Highway SLAM<a class="headerlink" href="#horizon-highway-slam" title="Permalink to this headline">¶</a></h3>
+<p>Horizon是Livox自主研发的对标L3级与L4级自动驾驶的高性能雷达，Horizon Highway SLAM是基于Horizon雷达开发的适用于高速运动场景的稳定、低漂移和实时的SLAM软件包。该算法适用0~80km/h的速度场景，并解决了极窄FOV内的特征提取、运动畸变补偿和通过多传感器融合以避免场景退化等技术难题。详情见：
+<a class="reference external" href="https://github.com/Livox-SDK/horizon_highway_slam">Horizon Highway SLAM</a></p>
+</div>
+<div class="section" id="livox-relocalization">
+<h3><span class="section-number">1.3.7. </span>Livox-Relocalization<a class="headerlink" href="#livox-relocalization" title="Permalink to this headline">¶</a></h3>
+<p>Livox-Relocalization是Livox开发的针对Livox Lidar的重定位软件包，可帮助用户加载使用Mid-40采集的地图并使用地图重定位雷达的位置信息。详情可见：
+<a class="reference external" href="https://github.com/Livox-SDK/livox_relocalization">Livox-Relocalization</a></p>
+</div>
+</div>
+<div class="section" id="id16">
+<h2><span class="section-number">1.4. </span>文档与手册<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h3><span class="section-number">1.4.1. </span>Livox Viewer用户手册<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>下载地址：
+<a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Viewer/Livox%20Viewer%20%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf">Livox Viewer</a></p>
+</div>
+<div class="section" id="id19">
+<h3><span class="section-number">1.4.2. </span>延长线转接盒安装模型<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>下载地址：
+<a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/extend_coupler_asm.stp">延长线转接盒安装模型</a></p>
+</div>
+<div class="section" id="livox">
+<h3><span class="section-number">1.4.3. </span>Livox点云特性<a class="headerlink" href="#livox" title="Permalink to this headline">¶</a></h3>
+<p>下载地址：
+<a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20%E7%82%B9%E4%BA%91%E7%89%B9%E6%80%A7.pdf">Livox点云特性</a></p>
+</div>
+<div class="section" id="livox-horizon">
+<h3><span class="section-number">1.4.4. </span>Livox Horizon相关<a class="headerlink" href="#livox-horizon" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>浩界Horizon用户手册下载地址 <a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Horizon%20User%20Manual%20(CN).pdf">浩界Horizon用户手册</a></p></li>
+<li><p>浩界Horizon快速入门指南下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/assets/horizon/Livox%20Horizon%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%EF%BC%88%E5%A4%9A%E8%AF%AD%E8%A8%80).pdf">浩界Horizon快速入门指南</a></p></li>
+</ul>
+</div>
+<div class="section" id="livox-mid">
+<h3><span class="section-number">1.4.5. </span>Livox Mid相关<a class="headerlink" href="#livox-mid" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Livox觅道系列用户手册v1.0下载地址 <a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Mid%20Series%20User%20Manual%20(CN).pdf">Livox觅道系列用户手册v1.0</a></p></li>
+<li><p>Livox觅道-40 快速入门指南v1.4下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/20190530/Livox%20Mid-40%20Quick%20Start%20Guide%20multi%20v1.4.pdf">Livox觅道-40 快速入门指南v1.4</a></p></li>
+<li><p>Livox觅道-100快速入门指南v1.4下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/20190530/Livox%20Mid-100%20Quick%20Start%20Guide%20multi%20v1.4.pdf">Livox觅道-100 快速入门指南v1.4</a></p></li>
+<li><p>觅道-40 3D Model and FOV Shape下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/MID-40%203D%20Model%20and%20FOV%20Shape.zip">觅道-40 3D Model and FOV Shape</a></p></li>
+<li><p>觅道-100 3D Model and FOV Shape下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/MID-100%203D%20Model%20and%20FOV%20Shape.zip">觅道-100 3D Model and FOV Shape</a></p></li>
+</ul>
+</div>
+<div class="section" id="livox-tele">
+<h3><span class="section-number">1.4.6. </span>Livox_Tele相关<a class="headerlink" href="#livox-tele" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>泰览Tele-15 3D Model and FOV Shape下载地址 <a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Tele-15_shell_FOV_3D.stp">泰览Tele-15 3D Model and FOV Shape</a></p></li>
+<li><p>泰览Tele-15 W/O Dissipation Module 3D Model下载地址 <a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Tele-15_withou_self_dissipation_module.stp">泰览Tele-15 W/O Dissipation Module 3D Model</a></p></li>
+</ul>
+</div>
+<div class="section" id="livox-hub">
+<h3><span class="section-number">1.4.7. </span>Livox Hub相关<a class="headerlink" href="#livox-hub" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Livox Hub用户手册v1.2下载地址 <a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Livox%20%E6%9E%A2%E7%BA%BD%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf">Livox Hub用户手册v1.2</a></p></li>
+<li><p>Livox Hub快速入门指南v1.0下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/20190318/Livox%20Hub%20Quick%20Start%20Guide%20v1.0.pdf">Livox Hub快速入门指南v1.0</a></p></li>
+<li><p>Livox Hub 3D模型下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/20190318/Livox%20Hub%203D%20Model.zip">Livox Hub 3D模型</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id24">
+<h2><span class="section-number">1.5. </span>点云数据<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id25">
+<h3><span class="section-number">1.5.1. </span>Livox Horizon点云数据<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>数据包1下载地址 <a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Horizon_%E9%81%93%E8%B7%AF%E5%9C%BA%E6%99%AF%E7%82%B9%E4%BA%91%E6%95%B0%E6%8D%AE_%E5%AE%98%E7%BD%91.lvx">Livox Horizon 点云数据包1</a></p></li>
+<li><p>数据包2下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/20200107/Sample%20Point%20Cloud%20of%20Horizon.zip">Livox Horizon 点云数据包2</a></p></li>
+</ul>
+</div>
+<div class="section" id="livox-mid-100">
+<h3><span class="section-number">1.5.2. </span>Livox Mid-100点云数据<a class="headerlink" href="#livox-mid-100" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>数据包1下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Mid-100%20Point%20Cloud%20Data%201.zip">Livox Mid 点云数据包1</a></p></li>
+<li><p>数据包2下载地址 <a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Mid-100%20Point%20Cloud%20Data%202.zip">Livox Mid 点云数据包2</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="third_part_summary.html" class="btn btn-neutral float-right" title="2. 非官方开源资料汇总" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../FAQ.html" class="btn btn-neutral float-left" title="问题与解答" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Livox
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

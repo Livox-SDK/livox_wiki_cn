@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. 多雷达数据采集（使用览沃枢纽 Livox Hub） &mdash; Livox wiki 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. 数据格式及其转换" href="format_conversion.html" />
+    <link rel="prev" title="1. 单雷达数据采集" href="single_lidar_capture.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Livox wiki
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Livox</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/production.html">1. 产品</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/livox_scanning_pattern.html">2. Livox的扫描特性简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/Point_Cloud_Characteristics_and_Coordinate_System .html">3. Livox的点云属性与惯性坐标系</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/cases.html">4. 案例介绍</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基础教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="single_lidar_capture.html">1. 单雷达数据采集</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. 多雷达数据采集（使用览沃枢纽 Livox Hub）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 连接及配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros">2.2. 使用ROS进行数据采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#livox-viewer">2.3. 使用Livox Viewer采集数据</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="format_conversion.html">3. 数据格式及其转换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensor_calibration.html">4. 如何进行传感器标定？</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发者资料汇总</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary/Livox_data_summary.html">1. 官方开源资料汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary/third_part_summary.html">2. 非官方开源资料汇总</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Livox wiki</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>多雷达数据采集（使用览沃枢纽 Livox Hub）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorials/multiple_lidars_capture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="livox-hub">
+<h1><span class="section-number">2. </span>多雷达数据采集（使用览沃枢纽 Livox Hub）<a class="headerlink" href="#livox-hub" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">2.1. </span>连接及配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>以一台Livox Mid-40和一台Livox Horizon为例：</p>
+<p><strong>软件部分</strong>：ubuntu 16.04、ROS、Livox-SDK、Livox ROS driver（此部分驱动的下载和安装详细过程见 <span class="xref std std-doc">驱动</span>）</p>
+<p><strong>硬件部分</strong>：Livox Mid-40 × 1、Livox Horizon × 1、Livox Hub × 1、千兆网线 × 1、Livox Hub电源线 × 1、Livox雷达电池 × 1、PC × 1。</p>
+<p><strong>连线和IP配置</strong>：Livox Hub通过以太网进行数据通信，采用UDP通信协议，支持两种IP地址配置：静态IP地址和动态IP地址，出厂时默认采用动态主机配置协议（DHCP）分配IP地址。根据IP地址设置形式不同，其物理连接方式也稍有差别。</p>
+<ul class="simple">
+<li><p>采用静态IP地址进行连接时，其物理连接如下图所示：</p></li>
+</ul>
+<img alt="../_images/static_ip.png" src="../_images/static_ip.png" />
+<ul class="simple">
+<li><p>采用动态IP地址进行连接时，其物理连接如下图所示：</p></li>
+</ul>
+<img alt="../_images/dynamic_ip.png" src="../_images/dynamic_ip.png" />
+<p>Livox Hub出厂时默认采用动态主机配置协议（DHCP）分配IP地址，若希望使用静态IP进行连接，需连接路由器进行设置，步骤如下：</p>
+<p>1.按照上图动态IP地址连接方式，通过路由器连接Livox Hub、Livox
+Lidar、PC和电源。</p>
+<p>2.在电脑上运行Livox Viewer，点击打开设备管理器。选择Livox
+Hub，点击打开设备属性页面。在设备属性页面中将Livox
+Hub的IP地址设置为静态IP地址。注意Livox
+Hub的静态IP地址应设置为192.168.1.X（其中，X为2~233之间的任意数字）。</p>
+<p>3.设置完毕后，断开Livox Hub的所有连接。</p>
+<p>4.若Livox
+Hub为静态IP模式，则电脑也应设置为静态IP模式（若电脑采用动态IP模式，可能导致无法读取到Livox
+Hub）。电脑的静态IP地址应设置为192.168.1.X（其中，X为2~233之间的任意数字），并且不可与连接的Livox
+Hub的IP地址相同。</p>
+<p>若对Hub的连线及IP配置存在疑问，可参考Livox官网“Livox Hub用户手册
+v1.2”的“连接”部分，下载地址如下 <a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Livox%20%E6%9E%A2%E7%BA%BD%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf">Livox Hub用户手册v1.2</a></p>
+<p>本示例使用静态IP配置，如下图所示：
+.. image:: ../image/static_IP_config.rst</p>
+<p>Livox Hub上最多可同时接入9个Livox Lidar，本示例连接了一台Livox
+Horizon和一台Livox
+Mid-40，若希望进行更多台Lidar同时采集，可直接进行连接。</p>
+</div>
+<div class="section" id="ros">
+<h2><span class="section-number">2.2. </span>使用ROS进行数据采集<a class="headerlink" href="#ros" title="Permalink to this headline">¶</a></h2>
+<p>连接成功后，在本地的ws_livox路径下编译：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">catkin_make</span>
+</pre></div>
+</div>
+<p>更新当前ROS包环境：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>source ./devel/setup.bash``
+</pre></div>
+</div>
+<p>使用ROS launch文件加载LIvox ros driver</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>roslaunch livox_ros_driver livox_hub_rviz.launch``
+</pre></div>
+</div>
+<p>览沃驱动程序中所有的 launch 文件都位于
+“ws_livox/src/livox_ros_driver/launch” 路径下，不同的 launch
+文件拥有不同的配置参数值，可根据不同的使用场景，启动不同的launch文件（详细launch配置文件描述可见 <a class="reference external" href="https://github.com/Livox-SDK/livox_ros_driver/blob/master/README_CN.md">Livox ROS Driver_github</a>
+4.1 launch配置文件描述部分）</p>
+<p>这里选用的livox_hub_rviz.launch将自动连接Livox
+Hub设备、向外发布pointcloud2格式的点云数据并自动加载rviz显示实时点云数据，如下图所示：</p>
+<img alt="../_images/ros_hub_scanning.png" src="../_images/ros_hub_scanning.png" />
+<p>红色部分点云为Livox Horizon扫描到的图像，紫色部分为Livox
+Mid-40扫描到的图像</p>
+</div>
+<div class="section" id="livox-viewer">
+<h2><span class="section-number">2.3. </span>使用Livox Viewer采集数据<a class="headerlink" href="#livox-viewer" title="Permalink to this headline">¶</a></h2>
+<p>连接成功后，在Livox Viewer文件夹内打开终端，运行下列命令打开Livox
+Viewer程序：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">livox_viewer</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>点击 <img alt="Viewer设备资源管理器" src="../_images/devices_manager.png" /> 打开设备管理器，选择Livox Hub，第一次连接时可能会显示Livox
+Hub的IP地址与PC的IP地址不匹配。若已经按照上面步骤将Livox
+Hub和PC进行了静态IP的配置，可点击工具栏Network Adapter—refresh
+Adapter刷新配置。</p>
+<p>打开Hub按钮并点击播放，即可显示多雷达实时扫描数据，如下图所示：</p>
+<img alt="../_images/two_lidar_scanning.png" src="../_images/two_lidar_scanning.png" />
+<p>黄色部分点云为Livox Horizon扫描的数据，蓝色部分点云为Livox
+Mid-40扫描到的数据。</p>
+<p>与单雷达数据录制类似，可点击工具栏上的录制按钮进行lvx格式文件的录制，暂停播放或再次点击此按钮结束录制。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="format_conversion.html" class="btn btn-neutral float-right" title="3. 数据格式及其转换" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="single_lidar_capture.html" class="btn btn-neutral float-left" title="1. 单雷达数据采集" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Livox
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

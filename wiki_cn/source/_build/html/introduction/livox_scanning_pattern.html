@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Livox的扫描特性简介 &mdash; Livox wiki 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Livox的点云属性与惯性坐标系" href="Point_Cloud_Characteristics_and_Coordinate_System .html" />
+    <link rel="prev" title="1. 产品序列" href="production.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Livox wiki
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Livox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="production.html">1. 产品序列</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Livox的扫描特性简介</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 视场覆盖率介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. 非重复式扫描方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.3. Livox激光雷达指标</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Point_Cloud_Characteristics_and_Coordinate_System .html">3. Livox的点云属性与惯性坐标系</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cases.html">4. 案例介绍</a></li>
+</ul>
+<p class="caption"><span class="caption-text">基础教程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/single_lidar_capture.html">1. 单雷达数据采集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/multiple_lidars_capture.html">2. 多雷达数据采集（使用览沃枢纽 Livox Hub）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/format_conversion.html">3. 数据格式及其转换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sensor_calibration.html">4. 如何进行传感器标定？</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发者资料汇总</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary/Livox_data_summary.html">1. 官方开源资料汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary/third_part_summary.html">2. 非官方开源资料汇总</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Livox wiki</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>Livox的扫描特性简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/introduction/livox_scanning_pattern.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="livox">
+<h1><span class="section-number">2. </span>Livox的扫描特性简介<a class="headerlink" href="#livox" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">2.1. </span>视场覆盖率介绍<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>激光雷达视场指的是激光雷达所探测的区域，该区域内的目标物体都有可能被检测到。然而，并非视场中的所有物体都能被检测到，原因包括：</p>
+<ul class="simple">
+<li><p>目标物体距离激光雷达过远或不在检测范围之内，导致物体反射光太弱，无法被识别。</p></li>
+<li><p>在某段时间内，由于激光只能照亮其扫描路径上的物体并测量其距离，不处在该段时间内激光扫描路径上的物体就无法被探测到。</p></li>
+</ul>
+<p>若能优化扫描方法，增大激光束路径所覆盖的区域在视场内的占比，即可降低上述第二种情况出现的概率。因此，视场内激光照射到的区域面积，关系到激光雷达的测量性能。该指标可以定量地用激光雷达视场中被激光探测到的区域的比例，即为视场覆盖率来表征。其计算公式如下：</p>
+<img alt="../_images/FOV_formula.png" src="../_images/FOV_formula.png" />
+<p>下图为Lidar的扫描视场图，黄色方块表示扫描到的区域，蓝色方块表示未被扫描到的区域：</p>
+<img alt="../_images/the_illuminated_and_unilluminated_areas_in_the_FOV.png" src="../_images/the_illuminated_and_unilluminated_areas_in_the_FOV.png" />
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">2.2. </span>非重复式扫描方式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">传统激光雷达普遍采用机械扫描方式，扫描路径随时间重复。而Livox
+激光雷达采用了独特的扫描⽅式，扫描路径不会重复。在非重复扫描方式中，视场中被激光照射到的区域面积会随时间增大，这意味着视场覆盖率随时间推移而显著提高，可减小视场内物体被漏检的概率，有助于探测视场中的更多细节。</div>
+</div>
+<p>下图中给出了一个直观的例子。（a）图由于采用了非重复扫描方式，随着时间的积累，视场覆盖率逐渐升高。而（b）图，由于扫描每次都是重复的，视场覆盖率几乎没有提升。</p>
+<img alt="../_images/NON_repetitive_scanning.png" src="../_images/NON_repetitive_scanning.png" />
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.3. </span>Livox激光雷达指标<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Livox的三款激光雷达：Mid-40、Horizon以及Tele-15均采用了非重复扫描方式，具有较高的视场覆盖率，且随着积分时间变长，视场覆盖率也会显著增大，直到接近100%，即视场中几乎所有区域都会被激光束照射到，如下图所示：</div>
+<div class="line"><br /></div>
+</div>
+<img alt="../_images/the_FOV_coverage_of_livox_lidar_sensors.png" src="../_images/the_FOV_coverage_of_livox_lidar_sensors.png" />
+<div class="line-block">
+<div class="line">该图同时显示了采用多线机械旋转重复扫描方式的激光雷达的视场覆盖率，其中包括竖直视场角为27°的64线产品、竖直视场角为41°的32线产品和竖直视场角为30°的16线产品。</div>
+</div>
+<p>可以看出，Mid-40、Horizon及Tele-15的表现十分出色，并随时间推移而达到最优：</p>
+<ul class="simple">
+<li><p>当积分时间为0.1s时，Mid-40的视场覆盖率与32线产品相近；当积分时间为0.5s时，Mid-40的视场覆盖率与64线产品相当。当积分时间继续增大时，覆盖率继续增大，直至接近100%。</p></li>
+<li><p>Horizon在积分时间是0.1s时，覆盖率即与传统64线激光雷达的相当。积分时间0.2s时，视场覆盖率即可达到80%
+以上。</p></li>
+<li><p>Tele的覆盖率优于市场上常见的多线旋转机械式激光雷达。当积分时间为0.1s时，视场覆盖率可达到90%左右。当积分时间为0.2s时，视场覆盖率接近
+100%。</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Point_Cloud_Characteristics_and_Coordinate_System .html" class="btn btn-neutral float-right" title="3. Livox的点云属性与惯性坐标系" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="production.html" class="btn btn-neutral float-left" title="1. 产品序列" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Livox
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>传感器转接模块 &mdash; scrapy-cookbook 0.2.2 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scrapy-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础教程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#id2">2. 如何获取数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#id3">3. 如何进行传感器标定？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#id4">4. 什么是运动畸变？如何进行修正？</a></li>
+</ul>
+<p class="caption"><span class="caption-text">高级应用篇</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html">1. Livox特征提取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html#id1">2. 固定雷达的移动目标检测与跟踪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html#livoxrtkimu">3. Livox融合RTK与IMU高精度点图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html#livox-slam">4. Livox SLAM教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html#id2">5. 深度学习篇</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">1. 一级标题1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html#id2">2. 一级标题2</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发者资料汇总</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary.html">1. 官方开源资料汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary.html#id2">2. 非官方开源资料汇总</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">scrapy-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>传感器转接模块</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/extension_module/sensor_adapter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>传感器转接模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>介绍<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>传感器转接模块是为了方便用户将温度、压力、测距等传感器接入 RoboMaster EP而设计的，可在Scratch 编程环境中获取传感器数据信息，每个模块均有两个传感器接口，两个接口功能相同。</p>
+<a class="reference internal image-reference" href="extension_module/../images/pinboard.png"><img alt="extension_module/../images/pinboard.png" src="extension_module/../images/pinboard.png" /></a>
+</div>
+<div class="section" id="id3">
+<h2>引脚说明<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="23%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">端口</th>
+<th class="head">引脚</th>
+<th class="head">功能</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="4">port1</td>
+<td>VCC</td>
+<td>电源正极，输出电压3.3V</td>
+</tr>
+<tr class="row-odd"><td>GND</td>
+<td>电源地</td>
+</tr>
+<tr class="row-even"><td>I/O</td>
+<td>电平输入，输入范围0~3.3V</td>
+</tr>
+<tr class="row-odd"><td>AD</td>
+<td>模拟电压输入，输入范围0~3.3V</td>
+</tr>
+<tr class="row-even"><td>port2</td>
+<td>同Port1</td>
+<td>同port1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="python-api">
+<h2>Python API<a class="headerlink" href="#python-api" title="永久链接至标题">¶</a></h2>
+<p>请参考 <span class="xref std std-doc">传感器转接模块</span></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, vance
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

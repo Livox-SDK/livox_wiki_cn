@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>UART 接口 &mdash; scrapy-cookbook 0.2.2 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> scrapy-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础教程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#id2">2. 如何获取数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#id3">3. 如何进行传感器标定？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#id4">4. 什么是运动畸变？如何进行修正？</a></li>
+</ul>
+<p class="caption"><span class="caption-text">高级应用篇</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html">1. Livox特征提取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html#id1">2. 固定雷达的移动目标检测与跟踪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html#livoxrtkimu">3. Livox融合RTK与IMU高精度点图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html#livox-slam">4. Livox SLAM教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_apply.html#id2">5. 深度学习篇</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">1. 一级标题1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html#id2">2. 一级标题2</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发者资料汇总</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary.html">1. 官方开源资料汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_summary.html#id2">2. 非官方开源资料汇总</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">scrapy-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>UART 接口</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/extension_module/uart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="uart">
+<h1>UART 接口<a class="headerlink" href="#uart" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>UART 是第三方平台跟 EP 连接的一种方式。用户通过 UART 可以很方便的将搭载在 EP 上的单片机跟 EP 建立连接，并在单片机上实现交互逻辑，使用明文 SDK 和 EP 机器人进行通信，实现对 EP 自动化的控制。</p>
+</div>
+<div class="section" id="uart-pin">
+<span id="id2"></span><h2>引脚说明<a class="headerlink" href="#uart-pin" title="永久链接至标题">¶</a></h2>
+<p>EP 的 UART 在运动控制器上，引脚说明如下：</p>
+<blockquote>
+<div><img alt="extension_module/../images/uart.png" class="align-center" src="extension_module/../images/uart.png" />
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>串口配置<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">通讯接口</th>
+<th class="head">波特率</th>
+<th class="head">数据位</th>
+<th class="head">停止位</th>
+<th class="head">奇偶校验</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>UART</td>
+<td>115200</td>
+<td>8</td>
+<td>1</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h2>第三方平台连接方式<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>请参考 <span class="xref std std-ref">third_part_uart</span></p>
+</div>
+<div class="section" id="python">
+<h2>Python 编程示例<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">PC 通过串口转 USB 连接到 EP 运动控制器的 UART 上。</p>
+</li>
+<li><p class="first">PC 端开启串口调试助手，选择打开串口对应 COM 口。</p>
+</li>
+<li><p class="first">打开已跟 EP 建立连接设备的官方 App，进入 Python 编程模式。</p>
+</li>
+<li><p class="first">在 Python 编程界面下，写一个简单的程序，使用 read_string() 读取串口数据，打印出来后再通过 write_string() 进行转发，并点击 “开始” 按钮运行程序。</p>
+</li>
+<li><p class="first">在串口调试助手上发送一个字符串，看是否能正确收到发出去的字符串。并查看 App 上是否正确打印了收到的字符串。</p>
+<blockquote>
+<div><img alt="extension_module/../images/uart_serial.png" class="align-center" src="extension_module/../images/uart_serial.png" />
+<p class="centered">
+<strong>串口调试助手发送并回显字符串</strong></p><img alt="extension_module/../images/uart_pc.png" class="align-center" src="extension_module/../images/uart_pc.png" />
+<p class="centered">
+<strong>App 打印收到的字符串并进行转发</strong></p></div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="sdk">
+<h2>明文 SDK 示例<a class="headerlink" href="#sdk" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">PC 通过串口转 USB 连接到 EP 运动控制器的 UART 上。</p>
+</li>
+<li><p class="first">PC 端开启串口调试助手，选择打开串口对应 COM 口。</p>
+</li>
+<li><p class="first">在串口调试助手上发送字符串 <code class="docutils literal notranslate"><span class="pre">command;</span></code>，若能收到 EP 发回来的 <code class="docutils literal notranslate"><span class="pre">ok</span></code> 表示明文 SDK 解析成功。</p>
+<blockquote>
+<div><img alt="extension_module/../images/uart_serial_sdk.png" class="align-center" src="extension_module/../images/uart_serial_sdk.png" />
+<p class="centered">
+<strong>串口调试助手发送 SDK 字符串收到回应</strong></p></div></blockquote>
+</li>
+</ol>
+<div class="admonition caution">
+<p class="first admonition-title">警告</p>
+<p class="last">在通过 UART 发送明文 SDK 指令时，一定要记得在命令后面加 <code class="docutils literal notranslate"><span class="pre">;</span></code> 分号，不然会解析失败。</p>
+</div>
+</div>
+<div class="section" id="python-api">
+<h2>Python API<a class="headerlink" href="#python-api" title="永久链接至标题">¶</a></h2>
+<p>请参考 <span class="xref std std-doc">UART</span></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, vance
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
