@@ -3,6 +3,8 @@ Welcome to LIVOX !
 ========================================
 .. image:: image/livox_logo.png
 
+`Livox Wiki English Version <https://livox-wiki-en.readthedocs.io/en/latest/>`_
+
 .. toctree::
     :maxdepth: 0
     :caption: Livox
