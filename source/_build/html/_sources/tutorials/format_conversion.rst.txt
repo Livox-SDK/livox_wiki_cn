@@ -2,22 +2,22 @@
 数据格式及其转换
 =======================================
 
-Livox Lidar数据格式介绍
+Livox LiDAR数据格式介绍
 -----------------------------
 
-Livox lidar支持多种方式连接和存储点云数据，其常用格式如下：
+Livox LiDAR支持多种方式连接和存储点云数据，其常用格式如下：
 
 
--  bag文件：bag文件是ROS系统常用的点云数据存储格式，有livox自定义的custommsg格式和pointcloud2格式两种。记录了lidar扫描过程中每帧点云数据并动态显示。使用ROS连接Livox
-   lidar可扫描并存储此格式的数据。
+-  bag文件：bag文件是ROS系统常用的点云数据存储格式，Livox LiDAR使用PointCloud2格式和自定义的CustomMsg格式两种。该文件记录了LiDAR扫描过程中每帧点云数据和其他传感器数据。使用ROS连接Livox
+   LiDAR可扫描并存储此格式的数据。
 -  lvx文件：lvx文件是使用Livox Viewer连接Livox
-   Lidar后存储的点云格式文件，可在Livox Viewer中查看并记录。
+   LiDAR后存储的点云数据，可在Livox Viewer中查看和编辑。
 -  csv文件：逗号分隔值文件，使用Livox Viewer连接Livox
-   Lidar后可将点云格式文件保存为csv格式。
+   LiDAR后可将lvx点云数据保存为csv格式。
 -  las文件：可用以保存Lidar点数据记录，使用Livox Viewer连接Livox
-   Lidar后可将点云格式文件保存为las格式。
--  pcd文件：点云格式文件，记录某一帧的点云数据。Livox
-   Lidar记录的数据无法直接保存为pcd格式，需进行转化。
+   LiDAR后可将点云数据保存为las格式。
+-  pcd文件：可记录某一帧的点云数据。Livox
+   LiDAR记录的数据无法直接保存为pcd格式，需进行转化。
 
 数据格式转化
 -----------------------------

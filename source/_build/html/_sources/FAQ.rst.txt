@@ -1,7 +1,7 @@
 =======================================
 问题与解答
 =======================================
-如果您对该文档任何的建议和意见，欢迎在
+如果您对该文档有任何的建议和意见，欢迎在
 `Livox-SDK Github <https://github.com/Livox-SDK>`_
 、
 `Livox LiDARs Google Groups <https://groups.google.com/forum/#!forum/livox-lidars>`_

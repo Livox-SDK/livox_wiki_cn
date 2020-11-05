@@ -2,12 +2,14 @@
 单雷达数据采集
 =======================================
 
+.. note:: 连接雷达前请注意关闭系统防火墙，否则可能无法连接
+
 使用Livox Viewer采集数据
 --------------------------------
 
 以Livox Mid-40为例：
 
-**软件依赖**：Ubuntu 16.04、Livox_Viewer(此部分软件安装见 :doc:`驱动 <../data_summary/Livox_data_summary>`)
+**软件依赖**：Livox_Viewer(此部分软件安装见 :doc:`驱动 <../data_summary/Livox_data_summary>`)(Win10或Ubuntu)
 
 **硬件部分**：Livox-Mid 40、电源转接插座2.0或连接盒、以太网线、PC。
 
@@ -18,7 +20,7 @@
 若对连线及IP配置存在疑问，可参考Livox官网Livox觅道Mid用户手册“连线”部分，下载地址
 `Livox觅道Mid用户手册 <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Mid%20Series%20User%20Manual%20(CN).pdf>`_
 
-采集：完成硬件连接后，在Ubuntu下打开Livox Viewer，下载地址如下所示：
+采集：完成硬件连接后，在Ubuntu / Win10下打开Livox Viewer，下载地址如下所示：
 
 `Livox Viewer 0.8.0 for Windows <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Viewer%200.8.0.7z>`_ 
 
@@ -61,6 +63,8 @@ Livox Viewer录制并保存文件的默认格式为lvx，在菜单中选择File-
 
 **采集**：
 
+-  Lvx格式：
+
 首先确认已从Git克隆Livox-SDK
 
 ::
@@ -78,7 +82,7 @@ Livox Viewer录制并保存文件的默认格式为lvx，在菜单中选择File-
 
 ::
    
-   $ ./lidar_lvx_sample -c "此处为已连接的Lidar的15位广播码" -t 10``
+   $ ./lidar_lvx_sample -c "此处为已连接的Lidar的15位广播码" -t 10
 
 .. image:: ../image/save_lvx_data_by_SDK_01.png
 
@@ -89,3 +93,27 @@ Livox Viewer录制并保存文件的默认格式为lvx，在菜单中选择File-
 成功执行后，当前路径下即可生成采集好的lvx文件
 
 .. image:: ../image/save_lvx_data_by_SDK_03.png
+
+-  bag格式：
+
+.. note:: 由于Horizon雷达内部集成了IMU，因此使用此方法记录Horizon雷达数据时包含两个Topic：分别是CustomMsg格式的点云数据和sensor_msgs/Imu格式的IMU数据。
+
+1.连接好雷达后，在livox_ros_driver所在工作空间打开终端编译并更新当前ROS包环境：
+
+::
+
+   $ catkin_make
+
+   $ source ./devel/setup.sh
+
+2.使用ROS launch文件加载览沃ROS驱动：
+
+::
+
+   $ roslaunch livox_ros_driver livox_lidar_rviz.launch
+
+3.启动rviz并显示雷达画面后，使用record命令记录数据：
+
+::
+
+   $ rosbag record -a

@@ -23,6 +23,7 @@ Welcome to LIVOX !
     tutorials/format_conversion.rst
     tutorials/sensor_calibration.rst
     tutorials/timestamp_sychronization.rst
+    tutorials/livox_SDK.rst
 
 
 .. toctree::

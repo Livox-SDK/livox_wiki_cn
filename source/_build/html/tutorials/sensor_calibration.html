@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. 如何进行传感器标定？ &mdash; Livox wiki 0.1 documentation</title>
+  <title>4. Livox 雷达标定 &mdash; Livox wiki 0.1 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="问题与解答" href="../FAQ.html" />
+    <link rel="next" title="5. 传感器时间戳同步" href="timestamp_sychronization.html" />
     <link rel="prev" title="3. 数据格式及其转换" href="format_conversion.html" /> 
 </head>
 
@@ -84,7 +84,7 @@
             
               <p class="caption"><span class="caption-text">Livox</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/production.html">1. 产品序列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/production.html">1. 产品</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/livox_scanning_pattern.html">2. Livox的扫描特性简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/Point_Cloud_Characteristics_and_Coordinate_System .html">3. Livox的点云属性与惯性坐标系</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/cases.html">4. 案例介绍</a></li>
@@ -94,24 +94,27 @@
 <li class="toctree-l1"><a class="reference internal" href="single_lidar_capture.html">1. 单雷达数据采集</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_lidars_capture.html">2. 多雷达数据采集（使用览沃枢纽 Livox Hub）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="format_conversion.html">3. 数据格式及其转换</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 如何进行传感器标定？</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Livox 雷达标定</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lidar-lidar">4.1. Lidar-Lidar外参标定</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">4.1.1. 手动标定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">4.1.2. 自动标定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4.1.1. 手动标定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.1.2. 自动标定</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lidar-camera">4.2. Lidar-Camera外参标定</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption"><span class="caption-text">FAQ</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timestamp_sychronization.html">5. 传感器时间戳同步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livox_ros_driver.html">6. Livox Ros Driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livox_sdk.html">7. Livox sdk</a></li>
 </ul>
 <p class="caption"><span class="caption-text">开发者资料汇总</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_summary/Livox_data_summary.html">1. 官方开源资料汇总</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_summary/third_part_summary.html">2. 非官方开源资料汇总</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
 </ul>
 
             
@@ -158,7 +161,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">4. </span>如何进行传感器标定？</li>
+      <li><span class="section-number">4. </span>Livox 雷达标定</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -177,20 +180,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
-<h1><span class="section-number">4. </span>如何进行传感器标定？<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="livox">
+<h1><span class="section-number">4. </span>Livox 雷达标定<a class="headerlink" href="#livox" title="Permalink to this headline">¶</a></h1>
 <p>在多传感器智能体导航中，通常会安装多个传感器用以数据的融合与计算。在移动建图和环境感知中，通常需要布置多个Lidar以确保较大的FOV，
 为更稳健的姿态估计算法和丰富环境细节提供稳定的数据源。然而无论是哪种传感器：相机、激光雷达、毫米波雷达都有自己的坐标系，也就是
 所有的传感器产生的数据都是基于传感器自身的坐标系的。为了方便算法研究和测试，需要将各自传感器获得的数据转换到同一个坐标系下，这既是传感器的外参标定。</p>
 <div class="section" id="lidar-lidar">
 <h2><span class="section-number">4.1. </span>Lidar-Lidar外参标定<a class="headerlink" href="#lidar-lidar" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3><span class="section-number">4.1.1. </span>手动标定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>可通过Livox_Viewer手动标定雷达外参，详情可查看：
+<div class="section" id="id1">
+<h3><span class="section-number">4.1.1. </span>手动标定<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Livox_Viewer软件中集成了手动标定雷达外参功能，可方便准确的标定多部FOV存在重叠的Livox LiDAR，详情可查看：
 <a class="reference external" href="https://github.com/Livox-SDK/Livox-SDK/wiki/Calibrate-extrinsic-and-display-under-ros-cn">外参标定与点云显示</a></p>
 </div>
-<div class="section" id="id4">
-<h3><span class="section-number">4.1.2. </span>自动标定<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3><span class="section-number">4.1.2. </span>自动标定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Livox提供基于c++的工具实现多雷达之间的标定外参自动计算，详情可参考:
 <a class="reference external" href="https://github.com/Livox-SDK/Livox_automatic_calibration/blob/master/doc/readme-CN.md">Livox calibration</a></p>
 </div>
@@ -199,6 +202,7 @@
 <h2><span class="section-number">4.2. </span>Lidar-Camera外参标定<a class="headerlink" href="#lidar-camera" title="Permalink to this headline">¶</a></h2>
 <p>Livox提供了一个手动校准Livox雷达和相机之间外参的方法，并在Mid-40，Horizon和Tele-15上进行了验证。其中包含了计算相机内参，获得标定数据，优化计算外参和雷达相机融合应用相关的代码。本方案中使用了标定板角点作为标定目标物，由于Livox雷达非重复性扫描的特点，点云的密度较大，比较易于找到雷达点云中角点的准确位置。相机雷达的标定和融合也可以得到不错的结果。详情可参考:
 <a class="reference external" href="https://github.com/Livox-SDK/livox_camera_lidar_calibration/blob/master/README.md">Camera-LiDAR-Calibration Manual</a></p>
+<p>关于多传感器融合扫描方案，可参考Livox开源算法 <a class="reference external" href="https://github.com/Livox-SDK/livox_high_precision_mapping">livox high precision mapping</a> ，该方案详细展示了如何对Mid-40激光雷达和apx-15惯导模块进行同步和标定，并使用该组件进行实时高精度建图。</p>
 </div>
 </div>
 
@@ -210,7 +214,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../FAQ.html" class="btn btn-neutral float-right" title="问题与解答" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="timestamp_sychronization.html" class="btn btn-neutral float-right" title="5. 传感器时间戳同步" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="format_conversion.html" class="btn btn-neutral float-left" title="3. 数据格式及其转换" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

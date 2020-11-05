@@ -98,16 +98,19 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_lidars_capture.html">2. 多雷达数据采集（使用览沃枢纽 Livox Hub）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="format_conversion.html">3. 数据格式及其转换</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sensor_calibration.html">4. 如何进行传感器标定？</a></li>
-</ul>
-<p class="caption"><span class="caption-text">FAQ</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensor_calibration.html">4. Livox 雷达标定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timestamp_sychronization.html">5. 传感器时间戳同步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livox_ros_driver.html">6. Livox Ros Driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livox_sdk.html">7. Livox sdk</a></li>
 </ul>
 <p class="caption"><span class="caption-text">开发者资料汇总</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_summary/Livox_data_summary.html">1. 官方开源资料汇总</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_summary/third_part_summary.html">2. 非官方开源资料汇总</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
 </ul>
 
             
@@ -175,16 +178,20 @@
             
   <div class="section" id="id1">
 <h1><span class="section-number">1. </span>单雷达数据采集<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>连接雷达前请注意关闭系统防火墙，否则可能无法连接</p>
+</div>
 <div class="section" id="livox-viewer">
 <h2><span class="section-number">1.1. </span>使用Livox Viewer采集数据<a class="headerlink" href="#livox-viewer" title="Permalink to this headline">¶</a></h2>
 <p>以Livox Mid-40为例：</p>
-<p><strong>软件依赖</strong>：Ubuntu 16.04、Livox_Viewer(此部分软件安装见 <a class="reference internal" href="../data_summary/Livox_data_summary.html"><span class="doc">驱动</span></a>)</p>
+<p><strong>软件依赖</strong>：Livox_Viewer(此部分软件安装见 <a class="reference internal" href="../data_summary/Livox_data_summary.html"><span class="doc">驱动</span></a>)(Win10或Ubuntu)</p>
 <p><strong>硬件部分</strong>：Livox-Mid 40、电源转接插座2.0或连接盒、以太网线、PC。</p>
 <p><strong>连接</strong>：物理连接如下图所示</p>
 <img alt="../_images/one_lidar_connect.png" src="../_images/one_lidar_connect.png" />
 <p>若对连线及IP配置存在疑问，可参考Livox官网Livox觅道Mid用户手册“连线”部分，下载地址
 <a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Mid%20Series%20User%20Manual%20(CN).pdf">Livox觅道Mid用户手册</a></p>
-<p>采集：完成硬件连接后，在Ubuntu下打开Livox Viewer，下载地址如下所示：</p>
+<p>采集：完成硬件连接后，在Ubuntu / Win10下打开Livox Viewer，下载地址如下所示：</p>
 <p><a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Viewer%200.8.0.7z">Livox Viewer 0.8.0 for Windows</a></p>
 <p><a class="reference external" href="https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Viewer/Livox_Viewr_For_Linux_Ubuntu16.04_x64_0.7.0.tar.gz">Livox Viewer 0.7.0 For Linux Ubuntu16.04_x64</a></p>
 <p>启动终端后进入到解压缩后文件夹的根目录，运行指令``./livox viewer.sh`` 即可启动</p>
@@ -208,6 +215,9 @@ Viewer用户手册。其下载地址为
 <p>若对连线及IP配置存在疑问，可参考Livox官网Livox觅道Mid用户手册“连线”部分，下载地址如下
 <a class="reference external" href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Mid%20Series%20User%20Manual%20(CN).pdf">Livox 觅道Mid用户手册</a></p>
 <p><strong>采集</strong>：</p>
+<ul class="simple">
+<li><p>Lvx格式：</p></li>
+</ul>
 <p>首先确认已从Git克隆Livox-SDK</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/Livox-SDK/Livox-SDK.git
 </pre></div>
@@ -217,13 +227,34 @@ Viewer用户手册。其下载地址为
 </pre></div>
 </div>
 <p>执行以下命令连接Lidar，并设定记录的点云数据的持续时间为10s:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./lidar_lvx_sample -c &quot;此处为已连接的Lidar的15位广播码&quot; -t 10``
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./lidar_lvx_sample -c &quot;此处为已连接的Lidar的15位广播码&quot; -t 10
 </pre></div>
 </div>
 <img alt="../_images/save_lvx_data_by_SDK_01.png" src="../_images/save_lvx_data_by_SDK_01.png" />
 <img alt="../_images/save_lvx_data_by_SDK_02.png" src="../_images/save_lvx_data_by_SDK_02.png" />
 <p>成功执行后，当前路径下即可生成采集好的lvx文件</p>
 <img alt="../_images/save_lvx_data_by_SDK_03.png" src="../_images/save_lvx_data_by_SDK_03.png" />
+<ul class="simple">
+<li><p>bag格式：</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>由于Horizon雷达内部集成了IMU，因此使用此方法记录Horizon雷达数据时包含两个Topic：分别是CustomMsg格式的点云数据和sensor_msgs/Imu格式的IMU数据。</p>
+</div>
+<p>1.连接好雷达后，在livox_ros_driver所在工作空间打开终端编译并更新当前ROS包环境：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ catkin_make
+
+$ source ./devel/setup.sh
+</pre></div>
+</div>
+<p>2.使用ROS launch文件加载览沃ROS驱动：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ roslaunch livox_ros_driver livox_lidar_rviz.launch
+</pre></div>
+</div>
+<p>3.启动rviz并显示雷达画面后，使用record命令记录数据：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosbag record -a
+</pre></div>
+</div>
 </div>
 </div>
 

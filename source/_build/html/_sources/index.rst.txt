@@ -14,22 +14,18 @@ Welcome to LIVOX !
     introduction/cases.rst
 
 .. toctree::
-   :maxdepth: 0
-   :caption: 基础教程
-   :numbered:
-
-   tutorials/single_lidar_capture.rst
-   tutorials/multiple_lidars_capture.rst
-   tutorials/format_conversion.rst
-   tutorials/sensor_calibration.rst
-   
-  
-
-.. toctree::
     :maxdepth: 0
-    :caption: FAQ
+    :caption: 基础教程
+    :numbered:
 
-    FAQ.rst
+    tutorials/single_lidar_capture.rst
+    tutorials/multiple_lidars_capture.rst
+    tutorials/format_conversion.rst
+    tutorials/sensor_calibration.rst
+    tutorials/timestamp_sychronization.rst
+    tutorials/livox_ros_driver.rst
+    tutorials/livox_sdk.rst
+
 
 .. toctree::
     :maxdepth: 0
@@ -39,6 +35,8 @@ Welcome to LIVOX !
     data_summary/Livox_data_summary.rst
     data_summary/third_part_summary.rst
 
+.. toctree::
+    :maxdepth: 0
+    :caption: FAQ
 
-
-
+    FAQ.rst

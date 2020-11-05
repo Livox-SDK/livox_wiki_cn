@@ -5,26 +5,26 @@
 产品
 --------------
 
-Mid
+觅道Mid
 ~~~~~~~~~~~~~~~~~~~~~~
 觅道Mid系列是Livox研发的高性价比激光雷达，可探测远至260米的物体。独特的非重复采样策略，助其精确探测视场中每个细节。而这一切都蕴含于小巧的机身中，可轻松嵌入各种平台。现已实现大规模量产，可立即供货，助力移动机器人、园区物流、车路协同、测绘、安防等领域从小批量测试走向大规模应用。点击了解详情：
 `Mid系列 <https://www.livoxtech.com/cn/mid-40-and-mid-100>`_
 
-.. image:: ../image/mid.png
+.. image:: ../image/mid.jpg
 
-Horizon
+浩界Horizon
 ~~~~~~~~~~~~~~~~~~~~~~
 浩界Horizon高性能激光雷达专为L3/L4自动驾驶打造，具备宽广水平视场、260米探测距离、高点云密度及便于嵌入车体的小巧体积，价格仅为同等性能激光雷达的1%。巨大的技术和成本优势将助力自动驾驶商业化量产落地。点击了解详情：
 `Horizon <https://www.livoxtech.com/cn/horizon>`_
 
-.. image:: ../image/horizon.png
+.. image:: ../image/horizon.jpg
 
-Tele
+泰览Tele
 ~~~~~~~~~~~~~~~~~~~~~~
 泰览Tele-15激光雷达专为远距离、高精度探测打造，可感知500米外的障碍物，且体积小巧、可靠性强。可在高速行驶中为车辆带来更充裕的响应时间，保障安全。点击了解详情：
 `Tele <https://www.livoxtech.com/cn/tele-15>`_
 
-.. image:: ../image/tele-15.png
+.. image:: ../image/tele-15.jpg
 
 
 

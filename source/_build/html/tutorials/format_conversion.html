@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. 如何进行传感器标定？" href="sensor_calibration.html" />
+    <link rel="next" title="4. Livox 雷达标定" href="sensor_calibration.html" />
     <link rel="prev" title="2. 多雷达数据采集（使用览沃枢纽 Livox Hub）" href="multiple_lidars_capture.html" /> 
 </head>
 
@@ -94,7 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="single_lidar_capture.html">1. 单雷达数据采集</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_lidars_capture.html">2. 多雷达数据采集（使用览沃枢纽 Livox Hub）</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. 数据格式及其转换</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#livox-lidar">3.1. Livox Lidar数据格式介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#livox-lidar">3.1. Livox LiDAR数据格式介绍</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">3.2. 数据格式转化</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lvxrosbag">3.2.1. lvx文件转rosbag文件并播放</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lvx-las-csv">3.2.2. lvx文件转.las或.csv文件</a></li>
@@ -103,16 +103,19 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sensor_calibration.html">4. 如何进行传感器标定？</a></li>
-</ul>
-<p class="caption"><span class="caption-text">FAQ</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensor_calibration.html">4. Livox 雷达标定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timestamp_sychronization.html">5. 传感器时间戳同步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livox_ros_driver.html">6. Livox Ros Driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livox_sdk.html">7. Livox sdk</a></li>
 </ul>
 <p class="caption"><span class="caption-text">开发者资料汇总</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_summary/Livox_data_summary.html">1. 官方开源资料汇总</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_summary/third_part_summary.html">2. 非官方开源资料汇总</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">问题与解答</a></li>
 </ul>
 
             
@@ -181,19 +184,19 @@
   <div class="section" id="id1">
 <h1><span class="section-number">3. </span>数据格式及其转换<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="livox-lidar">
-<h2><span class="section-number">3.1. </span>Livox Lidar数据格式介绍<a class="headerlink" href="#livox-lidar" title="Permalink to this headline">¶</a></h2>
-<p>Livox lidar支持多种方式连接和存储点云数据，其常用格式如下：</p>
+<h2><span class="section-number">3.1. </span>Livox LiDAR数据格式介绍<a class="headerlink" href="#livox-lidar" title="Permalink to this headline">¶</a></h2>
+<p>Livox LiDAR支持多种方式连接和存储点云数据，其常用格式如下：</p>
 <ul class="simple">
-<li><p>bag文件：bag文件是ROS系统常用的点云数据存储格式，有livox自定义的custommsg格式和pointcloud2格式两种。记录了lidar扫描过程中每帧点云数据并动态显示。使用ROS连接Livox
-lidar可扫描并存储此格式的数据。</p></li>
+<li><p>bag文件：bag文件是ROS系统常用的点云数据存储格式，Livox LiDAR使用PointCloud2格式和自定义的CustomMsg格式两种。该文件记录了LiDAR扫描过程中每帧点云数据和其他传感器数据。使用ROS连接Livox
+LiDAR可扫描并存储此格式的数据。</p></li>
 <li><p>lvx文件：lvx文件是使用Livox Viewer连接Livox
-Lidar后存储的点云格式文件，可在Livox Viewer中查看并记录。</p></li>
+LiDAR后存储的点云数据，可在Livox Viewer中查看和编辑。</p></li>
 <li><p>csv文件：逗号分隔值文件，使用Livox Viewer连接Livox
-Lidar后可将点云格式文件保存为csv格式。</p></li>
+LiDAR后可将lvx点云数据保存为csv格式。</p></li>
 <li><p>las文件：可用以保存Lidar点数据记录，使用Livox Viewer连接Livox
-Lidar后可将点云格式文件保存为las格式。</p></li>
-<li><p>pcd文件：点云格式文件，记录某一帧的点云数据。Livox
-Lidar记录的数据无法直接保存为pcd格式，需进行转化。</p></li>
+LiDAR后可将点云数据保存为las格式。</p></li>
+<li><p>pcd文件：可记录某一帧的点云数据。Livox
+LiDAR记录的数据无法直接保存为pcd格式，需进行转化。</p></li>
 </ul>
 </div>
 <div class="section" id="id2">
@@ -279,7 +282,7 @@ Lidar记录的数据无法直接保存为pcd格式，需进行转化。</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sensor_calibration.html" class="btn btn-neutral float-right" title="4. 如何进行传感器标定？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sensor_calibration.html" class="btn btn-neutral float-right" title="4. Livox 雷达标定" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="multiple_lidars_capture.html" class="btn btn-neutral float-left" title="2. 多雷达数据采集（使用览沃枢纽 Livox Hub）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

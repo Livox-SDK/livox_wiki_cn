@@ -18,7 +18,7 @@ Livox ROS driver是一个全新的ROS包，专门用于连接览沃生产的LiDA
 Livox Apollo Driver
 ~~~~~~~~~~~~~~~~~~~~~~
 
-览沃Apollo驱动用于将Livox\_Lidar扫描得到的原始数据文件转化为标准点云格式文件，并写入点云频道。详情及安装见 `Livox Apollo Driver <https://github.com/Livox-SDK/livox_apollo_driver>`_
+览沃Apollo驱动用于将Livox\_Lidar扫描得到的原始数据文件转化为标准点云格式文件，并写入点云通道。详情及安装见 `Livox Apollo Driver <https://github.com/Livox-SDK/livox_apollo_driver>`_
 
 工具
 --------------
@@ -26,7 +26,7 @@ Livox Apollo Driver
 Livox Viewer
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Livox Viewer 是一款专为Livox激光探测测距仪和Liovx Hub设计的，可用于实时显示连接至计算机的所有激光探测测距仪点云数据的软件。通过Livox Viewer，用户可轻松查看、记录并储存点云数据，以便后期使用。详细说明可见Livox官网 `Livox Viewer使用手册 <https://github.com/Livox-SDK/Livox-Viewer>`_，下载地址如下所示：
+Livox Viewer 是一款专为Livox激光探测测距仪和Liovx Hub设计的，可用于实时显示连接至计算机的所有激光探测测距仪点云数据的软件。通过Livox Viewer，用户可轻松查看、记录并储存点云数据，以便后期使用。详细说明可见Livox官网 `Livox Viewer使用手册 <https://github.com/Livox-SDK/Livox-Viewer>`_，下载地址如下：
 
 `Livox Viewer 0.7.0 (64bit) - Windows <https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Viewer/Livox%20Viewer%200.7.0.zip>`_
 
@@ -38,14 +38,14 @@ Livox Viewer 是一款专为Livox激光探测测距仪和Liovx Hub设计的，�
 Livox Horizon LOAM
 ~~~~~~~~~~~~~~~~~~~~~~
 
-livox Horizon Loam是针对Livox Lidar开发的一个鲁棒、低飘逸、实时的里程计和绘图软件包。该软件包主要针对低速场景（约5km/h）设计，并解决了许多关键问题如有限视场下的特征提取和选择和运动失真补偿等。详情见：
+livox Horizon Loam是针对Livox Lidar开发的一个鲁棒、低漂移、实时的里程计和绘图软件包。该软件包主要针对低速场景（约5km/h）设计，并解决了许多关键问题如有限视场下的特征提取和选择和运动失真补偿等。详情见：
 `Livox Horizon Loam <https://github.com/Livox-SDK/livox_horizon_loam>`_
 
-LOAM Horizon Calibration
+Livox Horizon Calibration
 ~~~~~~~~~~~~~~~~~~~~~~
 
-针对Horizon-Horizon/Horizon-Tele的基于Loam-Horizon的外部校准步骤。详情见：
-`LOAM Horizon Calibration <https://github.com/Livox-SDK/livox_calibration>`_
+针对Livox Horizon外参标定工具。详情见：
+`Livox Horizon Calibration <https://github.com/Livox-SDK/livox_calibration>`_
 
 livox scanner
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -62,13 +62,13 @@ livox high precision mapping
 livox camera lidar calibration
 ~~~~~~~~~~~~~~~~~~~~~~
 
-该方案提供了一个手动校准Livox雷达和相机之间外参的方法，已经在Mid-40，Horizon和Tele-15上进行了验证。其中包含了计算相机内参，获得标定数据，优化计算外参和雷达相机融合应用相关的代码。本方案中使用了标定板角点作为标定目标物，由于Livox雷达非重复性扫描的特点，点云的密度较大，比较易于找到雷达点云中角点的准确位置。相机雷达的标定和融合也可以得到不错的结果。详情见：
+该方案提供了一个手动标定Livox雷达和相机之间外参的方法，已经在Mid-40，Horizon和Tele-15上进行了验证。其中包含了计算相机内参，获得标定数据，优化计算外参和雷达相机融合应用相关的代码。本方案中使用了棋盘格作为标定目标物，由于Livox雷达非重复性扫描的特点，点云的密度较大，比较易于找到雷达点云中角点的准确位置。相机雷达的标定和融合也可以得到不错的结果。详情见：
 `livox camera lidar calibration <https://github.com/Livox-SDK/livox_camera_lidar_calibration>`_
 
 Horizon Highway SLAM
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Horizon是Livox自主研发的对标L3级与L4级自动驾驶的高性能雷达，Horizon Highway SLAM是基于Horizon雷达开发的适用于高速运动场景的稳定、低漂移和实时的SLAM软件包。该算法适用0~80km/h的速度场景，并解决了极窄FOV内的特征提取、运动畸变补偿和通过多传感器融合以避免场景退化等技术难题。详情见：
+Horizon是Livox自主研发的对标L3级与L4级自动驾驶的高性能雷达，Horizon Highway SLAM是基于Horizon雷达开发的适用于高速运动场景的稳定、低漂移和实时的建图工具包。该算法适用0~80km/h的速度场景，并解决了极窄FOV内的特征提取、运动畸变补偿和通过多传感器融合以避免场景退化等技术难题。详情见：
 `Horizon Highway SLAM <https://github.com/Livox-SDK/horizon_highway_slam>`_
 
 Livox-Relocalization
@@ -135,7 +135,7 @@ Livox Hub相关
 
 -  Livox Hub 3D模型下载地址 `Livox Hub 3D模型 <https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/20190318/Livox%20Hub%203D%20Model.zip>`_
 
-点云数据
+点云范例数据
 ----------------
 
 Livox Horizon点云数据
