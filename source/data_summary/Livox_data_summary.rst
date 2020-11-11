@@ -42,7 +42,7 @@ livox Horizon Loam是针对Livox Lidar开发的一个鲁棒、低漂移、实时
 `Livox Horizon Loam <https://github.com/Livox-SDK/livox_horizon_loam>`_
 
 Livox Horizon Calibration
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 针对Livox Horizon外参标定工具。详情见：
 `Livox Horizon Calibration <https://github.com/Livox-SDK/livox_calibration>`_
@@ -54,13 +54,13 @@ livox scanner是一个3D扫描解决方案，主要包括一个Mid-40激光雷�
 `livox scanner <https://github.com/Livox-SDK/livox_scanner>`_
 
 livox high precision mapping
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 该方案使用探测距离达260m，精度2cm，非重复扫描方式的Mid-40激光雷达传感器，结合APX-15惯导模块提供的高精度位置，姿态数据，实现实时的高精度建图功能。详情见：
 `livox high precision mapping <https://github.com/Livox-SDK/livox_high_precision_mapping>`_
 
 livox camera lidar calibration
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 该方案提供了一个手动标定Livox雷达和相机之间外参的方法，已经在Mid-40，Horizon和Tele-15上进行了验证。其中包含了计算相机内参，获得标定数据，优化计算外参和雷达相机融合应用相关的代码。本方案中使用了棋盘格作为标定目标物，由于Livox雷达非重复性扫描的特点，点云的密度较大，比较易于找到雷达点云中角点的准确位置。相机雷达的标定和融合也可以得到不错的结果。详情见：
 `livox camera lidar calibration <https://github.com/Livox-SDK/livox_camera_lidar_calibration>`_
