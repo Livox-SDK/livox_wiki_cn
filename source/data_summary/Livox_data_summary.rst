@@ -102,7 +102,7 @@ Livox点云特性
 Livox Avia相关
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. -  Livox Avia相关资料文档介绍下载地址 `Livox Avia相关资料文档介绍 <https://github.com/Livox-SDK/livox_wiki_cn/tree/master/sourcedoc/Livox Avia相关资料文档介绍.pdf>`_
+-  Livox Avia相关资料文档介绍下载地址 `Livox Avia相关资料文档介绍 <https://github.com/Livox-SDK/livox_wiki_cn/raw/master/source/doc/Livox%20Avia%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99%E6%96%87%E6%A1%A3%E4%BB%8B%E7%BB%8D.pdf>`_
 
 
 Livox Horizon相关
@@ -112,7 +112,7 @@ Livox Horizon相关
 
 -  浩界Horizon快速入门指南下载地址 `浩界Horizon快速入门指南 <https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/assets/horizon/Livox%20Horizon%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%EF%BC%88%E5%A4%9A%E8%AF%AD%E8%A8%80).pdf>`_
 
-.. -  Livox Horizon相关资料介绍文档下载地址 `Livox Horizon相关资料介绍文档 <https://github.com/Livox-SDK/livox_wiki_cn/tree/master/sourcedoc/Livox Horizon相关资料介绍文档.pdf>`_
+-  Livox Horizon相关资料介绍文档下载地址 `Livox Horizon相关资料介绍文档 <https://github.com/Livox-SDK/livox_wiki_cn/raw/master/source/doc/Livox%20Horizon%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99%E4%BB%8B%E7%BB%8D%E6%96%87%E6%A1%A3.pdf>`_
 
 Livox Mid相关
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -127,7 +127,7 @@ Livox Mid相关
 
 -  觅道-100 3D Model and FOV Shape下载地址 `觅道-100 3D Model and FOV Shape <https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/MID-100%203D%20Model%20and%20FOV%20Shape.zip>`_
 
-.. -  Livox Mid-70相关资料文档介绍下载地址 `Livox Mid-70相关资料文档介绍 <https://github.com/Livox-SDK/livox_wiki_cn/tree/master/sourcedoc/Livox Mid-70相关资料文档介绍.pdf>`_
+-  Livox Mid-70相关资料文档介绍下载地址 `Livox Mid-70相关资料文档介绍 <https://github.com/Livox-SDK/livox_wiki_cn/raw/master/source/doc/Livox%20Mid-70%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99%E6%96%87%E6%A1%A3%E4%BB%8B%E7%BB%8D.pdf>`_
 
 
 Livox_Tele相关
@@ -137,7 +137,7 @@ Livox_Tele相关
 
 -  泰览Tele-15 W/O Dissipation Module 3D Model下载地址 `泰览Tele-15 W/O Dissipation Module 3D Model <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Tele-15_withou_self_dissipation_module.stp>`_
 
-.. -  Livox Tele相关资料介绍文档下载地址 `Livox Tele相关资料介绍文档 <https://github.com/Livox-SDK/livox_wiki_cn/tree/master/sourcedoc/Livox Tele相关资料介绍文档.pdf>`_
+-  Livox Tele相关资料介绍文档下载地址 `Livox Tele相关资料介绍文档 <https://github.com/Livox-SDK/livox_wiki_cn/raw/master/source/doc/Livox%20Tele%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99%E4%BB%8B%E7%BB%8D%E6%96%87%E6%A1%A3.pdf>`_
 
 Livox Hub相关
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -147,8 +147,6 @@ Livox Hub相关
 -  Livox Hub快速入门指南v1.0下载地址 `Livox Hub快速入门指南v1.0 <https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/20190318/Livox%20Hub%20Quick%20Start%20Guide%20v1.0.pdf>`_
 
 -  Livox Hub 3D模型下载地址 `Livox Hub 3D模型 <https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/20190318/Livox%20Hub%203D%20Model.zip>`_
-
-.. -  Livox Tele相关资料介绍文档下载地址 `Livox Tele相关资料介绍文档 <https://github.com/Livox-SDK/livox_wiki_cn/tree/master/sourcedoc/Livox Tele相关资料介绍文档.pdf>`_
 
 点云范例数据
 ----------------
