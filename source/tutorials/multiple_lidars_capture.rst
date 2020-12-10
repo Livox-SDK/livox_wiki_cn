@@ -11,7 +11,7 @@
 
 **硬件部分**：Livox Mid-40 × 1、Livox Horizon × 1、Livox Hub × 1、千兆网线 × 1、Livox Hub电源线 × 1、Livox雷达电池 × 1、PC × 1。
 
-**时间戳同步**：关于多部livox LiDAR之间的时间戳同步，可参考： `Timestamp Synchronization <https://github.com/Livox-SDK/Livox-SDK/wiki/Timestamp-Synchronization>`_
+**时间戳同步**：关于多部livox LiDAR之间的时间戳同步，可参考： :ref:`Livox时间戳同步`
 
 **连线和IP配置**：Livox Hub通过以太网进行数据通信，采用UDP通信协议，支持两种IP地址配置：静态IP地址和动态IP地址，出厂时默认采用动态主机配置协议（DHCP）分配IP地址。根据IP地址设置形式不同，其物理连接方式也稍有差别。
 
