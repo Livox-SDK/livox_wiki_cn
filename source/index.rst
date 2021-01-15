@@ -3,6 +3,10 @@ Welcome to LIVOX !
 ========================================
 .. image:: image/livox_logo.png
 
+`Livox Homepage <https://www.livoxtech.com/cn>`_
+
+`Livox Forum <https://forum.livoxtech.com/>`_
+
 `Livox Wiki English Version <https://livox-wiki-en.readthedocs.io/en/latest/>`_
 
 .. toctree::
@@ -35,6 +39,8 @@ Welcome to LIVOX !
 
     data_summary/Livox_data_summary.rst
     data_summary/third_part_summary.rst
+    data_summary/dataset.rst
+
 
 .. toctree::
     :maxdepth: 0
