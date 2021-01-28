@@ -19,6 +19,9 @@ Livox仿真数据集是基于自动驾驶仿真测试平台生成的点云数据
 
 **数据格式及下载链接:**
 
+*在下载数据集之前，请仔细阅读这些条款。下载或使用数据集即表示您接受这些条款:*
+`GNU General Public License v3.0 <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/LICENSE.txt>`_
+
 `数据集说明文档 <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Avia/readme_CN.md>`_
 
 `数据集 <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/dataset/simu_data.zip>`_
