@@ -172,4 +172,4 @@ Livox Mid-100点云数据
 
 .. image:: ../image/vehicle_platform.png
 
-资料下载 `Livox车载雷达支架说明文档及开源资料 <https://github.com/Livox-SDK/livox_wiki_cn/raw/>`_
+资料下载 `Livox车载雷达支架说明文档及开源资料 <https://github.com/Livox-SDK/livox_wiki_cn/tree/master/source/data>`_
