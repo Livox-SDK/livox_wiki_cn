@@ -165,4 +165,11 @@ Livox Mid-100点云数据
 
 -  数据包2下载地址 `Livox Mid 点云数据包2 <https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Mid-100%20Point%20Cloud%20Data%202.zip>`_
 
+雷达车载支架
+----------------------------
 
+-  Livox开源车载雷达支架
+
+.. image:: ../image/vehicle_platform.png
+
+资料下载 `Livox车载雷达支架说明文档及开源资料 <https://github.com/Livox-SDK/livox_wiki_cn/tree/master/source/data>`_
