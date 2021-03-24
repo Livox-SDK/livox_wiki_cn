@@ -28,9 +28,9 @@ Livox Viewer
 
 Livox Viewer 是一款专为Livox激光探测测距仪和Liovx Hub设计的，可用于实时显示连接至计算机的所有激光探测测距仪点云数据的软件。通过Livox Viewer，用户可轻松查看、记录并储存点云数据，以便后期使用。详细说明可见Livox官网 `Livox Viewer使用手册 <https://github.com/Livox-SDK/Livox-Viewer>`_，下载地址如下：
 
-`Livox Viewer 0.7.0 (64bit) - Windows <https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Viewer/Livox%20Viewer%200.7.0.zip>`_
+`Livox Viewer 0.11.0 (64bit) - Windows <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Viewer%200.11.0.zip>`_
 
-`Livox Viewer 0.7.0(64bit) - Ubuntu 16.04 <https://www.livoxtech.com/3296f540ecf5458a8829e01cf429798e/downloads/Livox%20Viewer/Livox_Viewr_For_Linux_Ubuntu16.04_x64_0.7.0.tar.gz>`_
+`Livox Viewer 0.10.0(64bit) - Ubuntu 16.04 <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox_Viewer_For_Linux_Ubuntu16.04_x64_0.10.0.tar.gz>`_
 
 开源算法
 --------------
