@@ -6,6 +6,7 @@
  2.关闭系统防火墙；
  3.如果SDK或者ROSdriver没有数据，而viewer开启后能够获取到数据，说明链路已通。
   请参考SDK部分对雷达参数进行正确设置；
+  1.
 
 如果您对该文档有任何的建议和意见，欢迎在
 `Livox-SDK Github <https://github.com/Livox-SDK>`_
