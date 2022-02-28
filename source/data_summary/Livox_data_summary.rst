@@ -35,11 +35,11 @@ Livox Viewer 是一款专为Livox激光探测测距仪和Liovx Hub设计的，�
 开源算法
 --------------
 
-Livox Horizon LOAM
+LIO-Livox
 ~~~~~~~~~~~~~~~~~~~~~~
 
-livox Horizon Loam是针对Livox Lidar开发的一个鲁棒、低漂移、实时的里程计和绘图软件包。该软件包主要针对低速场景（约5km/h）设计，并解决了许多关键问题如有限视场下的特征提取和选择和运动失真补偿等。详情见：
-`Livox Horizon Loam <https://github.com/Livox-SDK/livox_horizon_loam>`_
+LIO-Livox是针对Livox Lidar开发的一个鲁棒、低漂移、实时的紧耦合里程计和绘图软件包。该软件包主要针对建图定位设计，并解决了许多关键问题如有限视场下的特征提取和选择和运动失真补偿等。详情见：
+`LIO-Livox <https://github.com/Livox-SDK/LIO-Livox>`_
 
 Livox Horizon Calibration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
