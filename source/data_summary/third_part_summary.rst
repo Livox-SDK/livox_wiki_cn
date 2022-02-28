@@ -30,6 +30,11 @@
 
 -  开源地址：`LiDAR IMU Init <https://github.com/hku-mars/LiDAR_IMU_Init>`_
 
+**Livox SLAM（带LIO+闭环检测优化）**
+
+-  主题：Livox雷达LIO+闭环检测优化
+
+-  开源地址：`LiDAR SLAM <https://github.com/PJLab-ADG/Livox-Mapping>`_
 
 
 论文
