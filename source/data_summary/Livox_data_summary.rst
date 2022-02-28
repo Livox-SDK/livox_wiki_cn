@@ -41,6 +41,13 @@ LIO-Livox
 LIO-Livox是针对Livox Lidar开发的一个鲁棒、低漂移、实时的紧耦合里程计和绘图软件包。该软件包主要针对建图定位设计，并解决了许多关键问题如有限视场下的特征提取和选择和运动失真补偿等。详情见：
 `LIO-Livox <https://github.com/Livox-SDK/LIO-Livox>`_
 
+livox_cloud_undistortion
+~~~~~~~~~~~~~~~~~~~~~~
+
+livox_cloud_undistortion是针对Livox Lidar开发的畸变修正模块。该模块利用雷达自带IMU对旋转运动失真进行补偿，并且开放了平移运动补偿接口。详情见：
+`livox_cloud_undistortion <https://github.com/Livox-SDK/livox_cloud_undistortion>`_；
+相关文章 <https://forum.livoxtech.com/thread-199-1-1.html>`_ 
+
 Livox Horizon Calibration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
