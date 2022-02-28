@@ -46,13 +46,13 @@ livox_cloud_undistortion
 
 livox_cloud_undistortion是针对Livox Lidar开发的畸变修正模块。该模块利用雷达自带IMU对旋转运动失真进行补偿，并且开放了平移运动补偿接口。详情见：
 `livox_cloud_undistortion <https://github.com/Livox-SDK/livox_cloud_undistortion>`_；
-相关文章 <https://forum.livoxtech.com/thread-199-1-1.html>`_ 
+`相关文章 <https://forum.livoxtech.com/thread-199-1-1.html>`_ 
 
 Livox-Free-Space
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 针对 Livox 雷达的可行使区域检测算法模块。详情见：
-`Livox Horizon Calibration <https://github.com/Livox-SDK/livox_free_space>`_
+`Livox-Free-Space <https://github.com/Livox-SDK/livox_free_space>`_
 
 Livox Horizon Calibration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
