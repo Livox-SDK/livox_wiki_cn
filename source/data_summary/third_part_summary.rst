@@ -2,6 +2,36 @@
 非官方开源资料汇总
 ========================================
 
+第三方开源代码
+--------------
+
+**雷达相机紧耦合里程计**
+
+-  主题：雷达相机紧耦合里程计
+
+-  开源地址：`R3LIVE <https://github.com/hku-mars/r3live>`_
+
+**雷达相机无靶标自动标定**
+
+-  主题：Livox雷达和相机自然场景下的外参标定
+
+-  开源地址：`Livox camera calib <https://github.com/hku-mars/livox_camera_calib>`_
+
+**雷达相机无靶标自动标定（多雷达多相机）**
+
+-  主题：多Livox雷达和多相机自然场景下的互标定
+
+-  开源地址：`MLCC <https://github.com/hku-mars/mlcc>`_
+
+
+**雷达IMU初始化和自动标定**
+
+-  主题：Livox雷达和IMU初始化和自动标定
+
+-  开源地址：`LiDAR IMU Init <https://github.com/hku-mars/LiDAR_IMU_Init>`_
+
+
+
 论文
 --------------
 
