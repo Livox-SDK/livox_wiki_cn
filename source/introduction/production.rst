@@ -42,6 +42,11 @@ Mid-70 延续 Livox 高性价比的优势，更针对低速自动驾驶、移动
 
 .. image:: ../image/tele-15.jpg
 
+浩界HAP
+~~~~~~~~~~~~~~~~~~~~~~
+Livox HAP 由 Livox 团队耗时两年精心打造，是 Livox 首款面向智能辅助驾驶市场研发的车规级激光雷达。HAP 探测距离提升至 150 米，HAP 横向视场角为 120°，通过双台部署，可为车前方提供最高至 180° 的超宽点云视野角分辨率高达 0.18°*0.23°, 其中感兴趣区域（ROI, Region of Interest） 的点云密度可等效 144 线激光雷达。点击了解详情：
+`HAP <https://www.livoxtech.com/cn/hap>`_
 
+.. image:: ../image/HAP.png
 
 
