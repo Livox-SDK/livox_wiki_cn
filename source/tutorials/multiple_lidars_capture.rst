@@ -84,6 +84,8 @@ Hub设备、向外发布pointcloud2格式的点云数据并自动加载rviz显�
 红色部分点云为Livox Horizon扫描到的图像，紫色部分为Livox
 Mid-40扫描到的图像
 
+livox hub当前已停产，多雷达数据采集可通过ros driver实现，启动livox lidar launch文件，默认配置可连接网段内全部雷达，如果只需要连接其中一两个，具体参考ros驱动的config配置。
+
 使用Livox Viewer采集数据
 ------------------------------------------
 
