@@ -7,7 +7,7 @@
 
 以一台Livox Mid-40和一台Livox Horizon为例：
 
-**软件部分**：ubuntu 16.04、ROS、Livox-SDK、Livox ROS driver（此部分驱动的下载和安装详细过程见 :doc:`驱动 <../data_summary>`）
+**软件部分**：ubuntu 16.04、ROS、Livox-SDK、Livox ROS driver（此部分驱动的下载和安装详细过程见 :doc:`驱动 <../../data_summary>`）
 
 **硬件部分**：Livox Mid-40 × 1、Livox Horizon × 1、Livox Hub × 1、千兆网线 × 1、Livox Hub电源线 × 1、Livox雷达电池 × 1、PC × 1。
 
@@ -17,11 +17,11 @@
 
 -  采用静态IP地址进行连接时，其物理连接如下图所示：
 
-.. image:: ../image/static_ip.png
+.. image:: ../../image/static_ip.png
 
 -  采用动态IP地址进行连接时，其物理连接如下图所示：
 
-.. image:: ../image/dynamic_ip.png
+.. image:: ../../image/dynamic_ip.png
 
 Livox Hub出厂时默认采用动态主机配置协议（DHCP）分配IP地址，若希望使用静态IP进行连接，需连接路由器进行设置，步骤如下：
 
@@ -44,7 +44,7 @@ Hub的IP地址相同。
 v1.2”的“连接”部分，下载地址如下 `Livox Hub用户手册v1.2 <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Livox%20%E6%9E%A2%E7%BA%BD%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf>`_
 
 本示例使用静态IP配置，如下图所示：
-.. image:: ../image/static_IP_config.rst
+.. image:: ../../image/static_IP_config.rst
 
 Livox Hub上最多可同时接入9个Livox Lidar，本示例连接了一台Livox
 Horizon和一台Livox
@@ -79,7 +79,7 @@ Mid-40，若希望进行更多台Lidar同时采集，可直接进行连接。
 这里选用的livox\_hub\_rviz.launch将自动连接Livox
 Hub设备、向外发布pointcloud2格式的点云数据并自动加载rviz显示实时点云数据，如下图所示：
 
-.. image:: ../image/ros_hub_scanning.png
+.. image:: ../../image/ros_hub_scanning.png
 
 红色部分点云为Livox Horizon扫描到的图像，紫色部分为Livox
 Mid-40扫描到的图像
@@ -96,7 +96,7 @@ Viewer程序：
    
    ./livox_viewer.sh
 
-.. |Viewer设备资源管理器| image:: ../image/devices_manager.png
+.. |Viewer设备资源管理器| image:: ../../image/devices_manager.png
 
 
 点击 |Viewer设备资源管理器| 打开设备管理器，选择Livox Hub，第一次连接时可能会显示Livox
@@ -106,7 +106,7 @@ Adapter刷新配置。
 
 打开Hub按钮并点击播放，即可显示多雷达实时扫描数据，如下图所示：
 
-.. image:: ../image/two_lidar_scanning.png
+.. image:: ../../image/two_lidar_scanning.png
 
 
 黄色部分点云为Livox Horizon扫描的数据，蓝色部分点云为Livox

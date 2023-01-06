@@ -35,7 +35,7 @@ PTP时间同步原理
 同步过程使用IEEE 1588v2.0 PTP的Delay request-response机制（two
 steps），Livox设备作为slave端，和master时钟设备进行ptp时间同步。
 
-.. image:: ../images_timesync/ptp_1588.png
+.. image:: ../../image/timesync/ptp_1588.png
 
 
 master和slave时钟通过Sync、Follow_Up、Delay_Req、Delay_Resp这几个数据包的交互，得到t1、t2、t3、t4时间，通过如下计算得到传输路径延迟和两时钟的偏移：
@@ -62,7 +62,7 @@ Livox设备接收到PPS信号上升沿，并由GPRMC数据解析出正确的时�
 -  Livox
    LiDAR无法直接接收GPRMC信号，需要将GPRMC数据端口接入PC，然后通过sdk协议发送给雷达；
 
-.. image:: ../images_timesync/gps_sync.png
+.. image:: ../../image/timesync/gps_sync.png
 
 PPS信号和GPRMC信号的时序要求：
 
@@ -110,7 +110,7 @@ PC上配置主时钟的方法可参考附录  :ref:`PTP`
 如果网络中有Sync、Follow_Up这两个数据，则说明存在PTP
 master时钟源，且正常工作：
 
-.. image:: ../images_timesync/wireshark_ptp.png
+.. image:: ../../image/timesync/wireshark_ptp.png
 
 **第二步：连接Livox LiDAR/Hub**
 
@@ -133,7 +133,7 @@ master时钟源，且正常工作：
 2、或者在Livox Viewer上位机中，查看Settings选项，下图的Sync
 State表明Hub在使用ptp 1588同步。
 
-.. image:: ../images_timesync/viewer_ptp.png
+.. image:: ../../image/timesync/viewer_ptp.png
 
 .. note:: 
    -  PTP同步优先级最高，当PTP、PPS或GPS同时可用时，会优先使用PTP网络同步；
@@ -165,7 +165,7 @@ sync port）即可。
 如果GPS模块的时间信号和PPS信号是TTL电平，则需要进行如下的电平转换后，才能将信号接入Hub的GPS时间同步口（GPS
 sync port）。
 
-.. image:: ../images_timesync/gps_ttl_hub.png
+.. image:: ../../image/timesync/gps_ttl_hub.png
 
 .. note::
    Hub使用GPS同步时，不需要进行SDK软件的配置。
@@ -184,7 +184,7 @@ Livox Converter 1.0
 将GPS模块的时间信号（GPRMC）通过TTL转usb模块接入PC，PPS信号接入LiDAR转接盒同步口（Sync
 Port）。
 
-.. image:: ../images_timesync/gps_ttl_mid.png
+.. image:: ../../image/timesync/gps_ttl_mid.png
 
 如果GPS模块输出的PPS为RS485电平的信号，则上图可以省略TTL转485模块。
 
@@ -236,7 +236,7 @@ Livox Converter 2.0
 将GPS模块的时间信号（GPRMC）通过TTL转usb模块接入PC，PPS信号接入LiDAR转接盒同步口（Sync
 Port）。
 
-.. image:: ../images_timesync/gps_ttl_horizon.png
+.. image:: ../../image/timesync/gps_ttl_horizon.png
 
 **软件配置**
 
@@ -289,12 +289,12 @@ Port）。
 
 UTC时间格式：
 
-.. image:: ../images_timesync/utc_time.png
+.. image:: ../../image/timesync/utc_time.png
 
 2、或者在Livox Viewer上位机中，查看Settings选项，下图的Sync
 State表明Hub在使用GPS同步。
 
-.. image:: ../images_timesync/viewer_gps.png
+.. image:: ../../image/timesync/viewer_gps.png
 
 
 .. note::
@@ -371,11 +371,11 @@ LiDAR每次接收到PPS信号的上升沿后，会将当前时刻的点云时间
 
 下图的例子中，表明eth0网卡支持硬件时间戳。
 
-.. image:: ../images_timesync/support.png
+.. image:: ../../image/timesync/ptp_support.png
 
 下图的例子中wlan0网卡不支持硬件和软件时间戳，linuxptp/ptp4l不能正常工作。
 
-.. image:: ../images_timesync/not_support.png
+.. image:: ../../image/timesync/ptp_not_support.png
 
 运行如下指令，开启ptp4l的master时钟功能：
 
@@ -386,7 +386,7 @@ LiDAR每次接收到PPS信号的上升沿后，会将当前时刻的点云时间
 如果网络中出现 ``Sync Message``
 数据，说明ptp4l程序的master时钟功能正常运行：
 
-.. image:: ../images_timesync/wireshark_ptp.png
+.. image:: ../../image/timesync/wireshark_ptp.png
 
 可以使用如下命令让系统时间和PTP硬件时钟同步:
 
@@ -397,17 +397,3 @@ LiDAR每次接收到PPS信号的上升沿后，会将当前时刻的点云时间
    sudo phc2sys -c eth0 -s CLOCK_REALTIME -O 0
 
 完成以上步骤，即可通过ptp4l实现雷达时间和PC本地系统时间的同步。
-
-.. |image0| image:: ./images_timesync/ptp_1588.png
-.. |image1| image:: ./images_timesync/gps_sync.png
-.. |image2| image:: ./images_timesync/wireshark_ptp.png
-.. |image3| image:: ./images_timesync/viewer_ptp.png
-.. |image4| image:: images_timesync/gps_ttl_hub.png
-.. |image5| image:: images_timesync/gps_ttl_mid.png
-.. |image6| image:: images_timesync/gps_ttl_horizon.png
-.. |image7| image:: ./images_timesync/utc_time.png
-.. |image8| image:: ./images_timesync/viewer_gps.png
-.. |image9| image:: ./images_timesync/support.png
-.. |image10| image:: ./images_timesync/not_support.png
-.. |image11| image:: ./images_timesync/wireshark_ptp.png
-

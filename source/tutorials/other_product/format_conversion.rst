@@ -25,7 +25,7 @@ Livox LiDAR支持多种方式连接和存储点云数据，其常用格式如下
 lvx文件转rosbag文件并播放
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  软件依赖：Ubuntu 16.04、ROS、livox\_ros\_driver (此部分驱动的下载和安装详细过程见 :doc:`驱动 <../data_summary/Livox_data_summary>`)
+-  软件依赖：Ubuntu 16.04、ROS、livox\_ros\_driver (此部分驱动的下载和安装详细过程见 :doc:`驱动 <../../data_summary/Livox_data_summary>`)
 
 livox\_ros\_driver支持将lvx pointcloud数据文件转换为rosbag文件。
 
@@ -49,9 +49,9 @@ livox\_ros\_driver支持将lvx pointcloud数据文件转换为rosbag文件。
 
 在上述命令中双引号内填写本地lvx数据文件路径即可成功运行，转换成功后将在上述路径下生成同名的rosbag格式文件,如下图所示：
 
-.. image:: ../image/lvx_to_rosbag_01.png 
+.. image:: ../../image/lvx_to_rosbag_01.png 
 
-.. image:: ../image/lvx_to_rosbag_02.png
+.. image:: ../../image/lvx_to_rosbag_02.png
 
 得到转化成功后的test.bag文件后，可使用rviz可视化工具播放，步骤如下：
 
@@ -69,12 +69,12 @@ livox\_ros\_driver支持将lvx pointcloud数据文件转换为rosbag文件。
 
 成功打开rviz后，需添加PointCloud2并选择相应的topic，可使用\ ``rosbag info <filename.bag>``\ 命令查看相应bag文件对应的topic，如下所示：
 
-.. image:: ../image/rosbag_info.png
+.. image:: ../../image/rosbag_info.png
 
 
 在rviz中添加相应topic：
 
-.. image:: ../image/rviz.png
+.. image:: ../../image/rviz.png
 
 然后运行rosbag，即可播放：
 
@@ -114,12 +114,12 @@ rosbag文件转pcd文件
 
 其中\ ``<input_file.bag>``\ 为需转换的bag文件名称，\ ``<topic>``\ 为该bag文件的topic信息，\ ``<output_directory>``\ 为转化完成后的pcd文件存放地址。
 
-.. image:: ../image/bag_to_pcd_pcddata.png
+.. image:: ../../image/bag_to_pcd_pcddata.png
 
 
 在对应文件夹下，可找到由rosbag文件转化而来的每一帧pcd文件，其文件名为当前帧的时间戳：
 
-.. image:: ../image/testpcd.png
+.. image:: ../../image/testpcd.png
 
 转换完成后，可使用pcl\_viewer查看pcd文件。命令如下：
 

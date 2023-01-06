@@ -9,13 +9,13 @@
 
 以Livox Mid-40为例：
 
-**软件依赖**：Livox_Viewer(此部分软件安装见 :doc:`驱动 <../data_summary/Livox_data_summary>`)(Win10或Ubuntu)
+**软件依赖**：Livox_Viewer(此部分软件安装见 :doc:`驱动 <../../data_summary/Livox_data_summary>`)(Win10或Ubuntu)
 
 **硬件部分**：Livox-Mid 40、电源转接插座2.0或连接盒、以太网线、PC。
 
 **连接**：物理连接如下图所示
 
-.. image:: ../image/one_lidar_connect.png
+.. image:: ../../image/one_lidar_connect.png
 
 若对连线及IP配置存在疑问，可参考Livox官网Livox觅道Mid用户手册“连线”部分，下载地址
 `Livox觅道Mid用户手册 <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Mid%20Series%20User%20Manual%20(CN).pdf>`_
@@ -30,11 +30,11 @@
 
 若正确的连接了Lidar并完成了IP配置，此时Livox Viewer界面显示如下，左侧显示已连接的Livox Lidar的型号和15位广播码。
 
-.. image:: ../image/start_Viewer_and_link_Horizon.png
+.. image:: ../../image/start_Viewer_and_link_Horizon.png
 
 点击按钮启动Lidar,再点击播放按钮即可显示Lidar所采集到的点云图,如下所示：
 
-.. image:: ../image/capture.png
+.. image:: ../../image/capture.png
 
 采集成功后，可点击工具栏上的录制按钮进行lvx格式文件的录制，暂停播放或再次点击此按钮结束录制。
 
@@ -50,13 +50,13 @@ Livox Viewer录制并保存文件的默认格式为lvx，在菜单中选择File-
 
 以Livox Mid-40为例：
 
-**软件依赖**：ubuntu 16.04、ROS、Livox-SDK、Livox\_ROS\_driver(此部分驱动的下载和安装详细过程见 :doc:`驱动 <../data_summary/Livox_data_summary>`)
+**软件依赖**：ubuntu 16.04、ROS、Livox-SDK、Livox\_ROS\_driver(此部分驱动的下载和安装详细过程见 :doc:`驱动 <../../data_summary/Livox_data_summary>`)
 
 **硬件部分**：Livox-Mid 40 × 1、电源转接插座2.0或连接盒 × 1、以太网线（百兆或千兆） × 1、PC × 1
 
 **连接**：物理连接如下图所示
 
-.. image:: ../image/one_lidar_connect.png
+.. image:: ../../image/one_lidar_connect.png
 
 若对连线及IP配置存在疑问，可参考Livox官网Livox觅道Mid用户手册“连线”部分，下载地址如下
 `Livox 觅道Mid用户手册 <https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/update/Livox%20Mid%20Series%20User%20Manual%20(CN).pdf>`_
@@ -84,15 +84,15 @@ Livox Viewer录制并保存文件的默认格式为lvx，在菜单中选择File-
    
    $ ./lidar_lvx_sample -c "此处为已连接的Lidar的15位广播码" -t 10
 
-.. image:: ../image/save_lvx_data_by_SDK_01.png
+.. image:: ../../image/save_lvx_data_by_SDK_01.png
 
 
-.. image:: ../image/save_lvx_data_by_SDK_02.png
+.. image:: ../../image/save_lvx_data_by_SDK_02.png
 
 
 成功执行后，当前路径下即可生成采集好的lvx文件
 
-.. image:: ../image/save_lvx_data_by_SDK_03.png
+.. image:: ../../image/save_lvx_data_by_SDK_03.png
 
 -  bag格式：
 

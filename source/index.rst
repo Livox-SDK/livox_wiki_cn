@@ -21,17 +21,10 @@ Welcome to LIVOX !
     introduction/cases.rst
 
 .. toctree::
-    :maxdepth: 0
     :caption: 基础教程
     :numbered:
 
-    tutorials/single_lidar_capture.rst
-    tutorials/multiple_lidars_capture.rst
-    tutorials/format_conversion.rst
-    tutorials/sensor_calibration.rst
-    tutorials/timestamp_sychronization.rst
-    tutorials/livox_SDK.rst
-
+    tutorials/index.rst
 
 .. toctree::
     :maxdepth: 0
