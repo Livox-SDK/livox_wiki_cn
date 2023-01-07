@@ -5,7 +5,7 @@ build:
   tools:
     python: "3.8"
 sphinx:
-  configuration: docs/source/conf.py
+  configuration: source/conf.py
 
 python:
   # Install our python package before building the docs
