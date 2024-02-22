@@ -32,3 +32,9 @@ hms诊断码介绍
 .. toctree::
 
     hms_code_mid360.rst
+
+减震散热配件介绍
+------------------------
+.. toctree::
+
+    cushioning_radiator.rst
