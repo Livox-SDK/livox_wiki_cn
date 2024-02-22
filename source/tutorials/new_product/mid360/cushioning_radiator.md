@@ -1,4 +1,4 @@
-# 散热配件:
+# 散热配件
 
 用户可以购买散热配件以满足60℃环境下工作的需求
 
@@ -6,7 +6,7 @@
 
 ![](./images/radiator_build.png)
 
-## 散热配件安装尺寸：
+## 散热配件安装尺寸
 
 ![](./images/radiator_build_size1.png)
 ![](./images/radiator_build_size2.png)

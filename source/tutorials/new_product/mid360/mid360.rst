@@ -37,4 +37,4 @@ hms诊断码介绍
 ------------------------
 .. toctree::
 
-    cushioning_radiator.rst
+    cushioning_radiator.md
