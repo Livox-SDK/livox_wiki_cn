@@ -388,9 +388,9 @@ Tag主要指示探测点的其它附加信息。点云标记为8bit 无符号整
 | 0x800A          | last_sync_time        | 8        | uint64_t    | 上一次同步的master时间：<br />如果是PTP同步：此时间是follow_up消息中携带的t1时间<br />如果是GPS同步：此时间是同步命令中携带的PPS信号上升沿时间 | 否                                                 |
 | 0x800B          | time_offset           | 8        | int64_t     | 当前本地时间与同步源的时间偏移，单位ns：<br />设备本地时间为t0，源时间为t1，则<br />`time_offset = t0 - t1` | 否                                                 |
 | 0x800C          | time_sync_type        | 1        | uint8_t     | 时间同步方式<br />0：无时间同步<br />1：PTP时间同步(IEEE 1588v2.0)<br />2：GPS时间同步<br /> | 否                                                 |
-| 0x800E | error_code | 2 | uint16_t | 异常码<br/>模块状态异常等级：<br/>0: normal <br/>1: warning<br/>2: error<br/>3: safety_err<br/>struct error_code{<br/>bit0-3:  系统模块<br/>bit4~7: 扫描模块<br/>bit8~11: 测距模快<br/>bit12~15: 通信模块<br/>} |  |
-| 0x8010 | FW_TYPE | 1 | uint8_t | 固件类型：<br/>0:loader<br />1:application_image | 否 |
-| 0x8011 | hms_code | 1 | uint32_t[8] | 故障诊断码，每一条非0值代表一条诊断信息，当雷达工作异常时，可通过查询该诊断码确认问题原因； |  |
+| 0x800E          | error_code            | 2        | uint16_t    | 异常码<br/>模块状态异常等级：<br/>0: normal <br/>1: warning<br/>2: error<br/>3: safety_err<br/>struct error_code{<br/>bit0-3:  系统模块<br/>bit4~7: 扫描模块<br/>bit8~11: 测距模快<br/>bit12~15: 通信模块<br/>} |  |
+| 0x8010          | FW_TYPE               | 1        | uint8_t     | 固件类型：<br/>0:loader<br />1:application_image | 否 |
+| 0x8011          | hms_code              | 32       | uint32_t[8] | 故障诊断码，每一条非0值代表一条诊断信息，当雷达工作异常时，可通过查询该诊断码确认问题原因； |  |
 
 ## 控制相关    
 
