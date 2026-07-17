@@ -377,6 +377,7 @@ Tag主要指示探测点的其它附加信息。点云标记为8bit 无符号整
 | 0x001C          | imu_data_en           | 1        | uint8_t     | 0: IMU数据推送关闭<br/>1: IMU数据推动使能                    | 是                                                 |
 | 0x0021          | speed_mode            | 1        | uint8_t     | 0: 电机正常模式<br/>1: 电机低速模式<br/>默认值为0            | 是                                                 |
 | 0x0026          | time_filter           | 1        | uint8_t     | 0: 时间戳正常同步，如果时间回退会导致点云中断<br/>1: GPS时间同步增加异常时间过滤且时间回退不会导致点云中断<br/>默认值为0  | 是                           |
+| 0x002B      | imu_sensor_cfg        | 3      | uint8_t[3]  | IMU频率及量程配置。<br/>data[0] 输出速率 0:200Hz, 1:500Hz, 2:100Hz, 3:50Hz.<br/>data[1] 加速度范围 0:±4g, 1:±8g, 2:±16g, 3:±32g.<br/>data[2] 陀螺仪范围 0:±2000, 1:±1000, 2:±500, 3:±250, 4:±125, 5:±62.5, 6:±31.25, 7:±15.625 dps. | 是 |
 | 0x8000          | sn                    | 16       | uint8_t[16] | 字符串类型(不足16位使用 '\0' 补齐)<br/>雷达SN(不足16位使用 '\0' 补齐) | 否                                                 |
 | 0x8001          | product_info          | 64       | char[64]    | 字符串类型(不足32位使用 '\0' 补齐)<br/>雷达类型+雷达生产日期<br/>示例: "Mid-360 2021/12/01" | 否                                                 |
 | 0x8002          | version_app           | 4        | uint8_t[4]  | App固件版本号：aa.bb.cc.dd<br/>version_info[0]: aa<br/>version_info[1]: bb<br/>version_info[2]: cc<br/>version_info[3]: dd | 否                                                 |
