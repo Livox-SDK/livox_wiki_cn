@@ -6,6 +6,7 @@
 
     new_product/hap/hap.rst
     new_product/mid360/mid360.rst
+    new_product/avia2/avia2.rst
     new_product/common/index.rst
 
 ============
